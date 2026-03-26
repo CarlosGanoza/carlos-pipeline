@@ -1,0 +1,19 @@
+{
+  "phase": "analysis",
+  "result_count": 0,
+  "required_result_count": 0,
+  "passing_result_count": 0,
+  "blocking_result_failure_count": 0,
+  "dry_run_result_count": 0,
+  "local_validation_result_count": 0,
+  "local_execution_result_count": 0,
+  "remote_execution_result_count": 0,
+  "executed_result_count": 0,
+  "transport_count": 0,
+  "transports": [],
+  "status_counts": {},
+  "mode_counts": {},
+  "failure_kinds": [],
+  "pass": true,
+  "results": []
+}

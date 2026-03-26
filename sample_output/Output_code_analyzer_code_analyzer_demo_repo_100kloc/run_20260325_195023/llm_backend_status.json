@@ -1,0 +1,16 @@
+{
+  "backend": "ollama",
+  "healthy": false,
+  "primary_model": "qwen2.5-coder:7b",
+  "candidate_models": [
+    "qwen2.5-coder:7b"
+  ],
+  "available_models": [],
+  "selected_model": "",
+  "requested_mode": "deterministic",
+  "effective_mode": "deterministic",
+  "llm_output_policy": "strict_gate",
+  "grounding_profile": "standard",
+  "require_llm": false,
+  "error": ""
+}

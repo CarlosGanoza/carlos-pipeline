@@ -1,0 +1,230 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "code-analyzer-review-audit",
+          "informationUri": "https://example.invalid/code-analyzer-review-audit",
+          "rules": [
+            {
+              "id": "review.run-status",
+              "name": "review.run-status",
+              "shortDescription": {
+                "text": "Run status recorded for review workflow."
+              }
+            },
+            {
+              "id": "review.approval",
+              "name": "review.approval",
+              "shortDescription": {
+                "text": "Approval presence recorded for review workflow."
+              }
+            },
+            {
+              "id": "review.classification",
+              "name": "review.classification",
+              "shortDescription": {
+                "text": "Maximum output classification recorded for review workflow."
+              }
+            },
+            {
+              "id": "review.endpoint-quality",
+              "name": "review.endpoint-quality",
+              "shortDescription": {
+                "text": "Endpoint verification and confidence metrics exported for governance."
+              }
+            },
+            {
+              "id": "review.grounding",
+              "name": "review.grounding",
+              "shortDescription": {
+                "text": "Grounding and evidence coverage metrics exported for review."
+              }
+            },
+            {
+              "id": "review.contradictions",
+              "name": "review.contradictions",
+              "shortDescription": {
+                "text": "Contradiction and duplicate-endpoint checks exported for review."
+              }
+            },
+            {
+              "id": "review.unsupported-claims",
+              "name": "review.unsupported-claims",
+              "shortDescription": {
+                "text": "Unsupported semantic claim details exported for review."
+              }
+            },
+            {
+              "id": "review.self-review",
+              "name": "review.self-review",
+              "shortDescription": {
+                "text": "Self-review findings exported for release governance."
+              }
+            },
+            {
+              "id": "review.external-integrations",
+              "name": "review.external-integrations",
+              "shortDescription": {
+                "text": "External identity, approval, and signing integration readiness exported for governance."
+              }
+            },
+            {
+              "id": "review.publish-artifacts",
+              "name": "review.publish-artifacts",
+              "shortDescription": {
+                "text": "Published artifact counts exported for governance."
+              }
+            },
+            {
+              "id": "review.publish-environment",
+              "name": "review.publish-environment",
+              "shortDescription": {
+                "text": "Publish environment promotion status exported for governance."
+              }
+            },
+            {
+              "id": "review.publish-ledger",
+              "name": "review.publish-ledger",
+              "shortDescription": {
+                "text": "Publish audit ledger append and chain status exported for governance."
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "review.run-status",
+          "level": "note",
+          "message": {
+            "text": "Run status running in analysis phase."
+          },
+          "properties": {
+            "runId": "run_20260325_195023"
+          }
+        },
+        {
+          "ruleId": "review.approval",
+          "level": "note",
+          "message": {
+            "text": "Approval not required in analysis phase."
+          },
+          "properties": {
+            "approvalCount": 0,
+            "approvalRequired": false,
+            "approvalRequirementsMet": true,
+            "missingApprovalRoles": []
+          }
+        },
+        {
+          "ruleId": "review.grounding",
+          "level": "warning",
+          "message": {
+            "text": "Grounding gate pass=True, evidence_coverage=1.000, semantic_coverage=0.985, missing_files=557, unsupported_claims=1."
+          },
+          "properties": {
+            "gatePass": true,
+            "evidenceCoverage": 1.0,
+            "semanticCoverage": 0.9852941176470589,
+            "filesMissingEvidenceCount": 557,
+            "claimsSemanticallyUnsupported": 1
+          }
+        },
+        {
+          "ruleId": "review.contradictions",
+          "level": "note",
+          "message": {
+            "text": "Contradiction audit issues=0, duplicate_endpoints=0, verification_conflicts=0."
+          },
+          "properties": {
+            "issueCount": 0,
+            "duplicateEndpointSignatureCount": 0,
+            "endpointVerificationConflictCount": 0
+          }
+        },
+        {
+          "ruleId": "review.unsupported-claims",
+          "level": "warning",
+          "message": {
+            "text": "Unsupported claim audit issues=1, claims_semantically_unsupported=1."
+          },
+          "properties": {
+            "issueCount": 1,
+            "claimsSemanticallyUnsupported": 1
+          }
+        },
+        {
+          "ruleId": "review.self-review",
+          "level": "warning",
+          "message": {
+            "text": "Self review pass=False, issue_count=2, blocking_issue_count=2."
+          },
+          "properties": {
+            "pass": false,
+            "issueCount": 2,
+            "blockingIssueCount": 2
+          }
+        },
+        {
+          "ruleId": "review.external-integrations",
+          "level": "note",
+          "message": {
+            "text": "External integrations pass=True, configured=0, required=0, blocking_failures=0, ready_operations=0, planned=0, failing_plans=0, blocking_plan_failures=0, dispatch_specs=0, ready_dispatch_specs=0, blocking_dispatch_specs=0, transports=0, dispatch_results=0, passing_dispatch_results=0, blocking_dispatch_results=0, dry_run_dispatch_results=0, local_validation_dispatch_results=0, local_execution_dispatch_results=0, remote_execution_dispatch_results=0, executed_dispatch_results=0."
+          },
+          "properties": {
+            "pass": true,
+            "configuredCount": 0,
+            "requiredCount": 0,
+            "blockingFailureCount": 0,
+            "readyOperationCount": 0,
+            "plannedCount": 0,
+            "failingPlanCount": 0,
+            "blockingPlanFailureCount": 0,
+            "dispatchSpecCount": 0,
+            "readyDispatchSpecCount": 0,
+            "blockingDispatchSpecCount": 0,
+            "transportCount": 0,
+            "dispatchResultCount": 0,
+            "passingDispatchResultCount": 0,
+            "blockingDispatchResultCount": 0,
+            "dryRunDispatchResultCount": 0,
+            "localValidationDispatchResultCount": 0,
+            "localExecutionDispatchResultCount": 0,
+            "remoteExecutionDispatchResultCount": 0,
+            "executedDispatchResultCount": 0
+          }
+        },
+        {
+          "ruleId": "review.classification",
+          "level": "note",
+          "message": {
+            "text": "Maximum output classification: unknown."
+          },
+          "properties": {
+            "maxClassification": "unknown"
+          }
+        },
+        {
+          "ruleId": "review.endpoint-quality",
+          "level": "note",
+          "message": {
+            "text": "Endpoint quality totals: total=2, verified=0, high_confidence=0, cross_file=0."
+          },
+          "properties": {
+            "totalEndpoints": 2,
+            "runtimeVerifiedEndpoints": 0,
+            "highConfidenceEndpoints": 0,
+            "crossFileEndpoints": 0
+          }
+        }
+      ],
+      "properties": {
+        "phase": "analysis",
+        "runId": "run_20260325_195023"
+      }
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "phase": "analysis",
+  "plan_count": 0,
+  "required_plan_count": 0,
+  "passing_plan_count": 0,
+  "failing_plan_count": 0,
+  "required_operation_count": 0,
+  "ready_operation_count": 0,
+  "required_operations": [],
+  "ready_operations": [],
+  "blocking_plan_failure_count": 0,
+  "plan_failure_kinds": [],
+  "pass": true,
+  "plans": []
+}

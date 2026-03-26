@@ -1,0 +1,41 @@
+{
+  "record_count": 3,
+  "records": [
+    {
+      "claim": "Repository likely exposes service/API runtime behavior.",
+      "type": "inference",
+      "confidence": "low",
+      "evidence": [
+        "services/api_python/src/app.py#L6",
+        "services/api_python/src/app.py#L10",
+        "services/api_python/src/app.py#L1"
+      ],
+      "evidence_joined": "services/api_python/src/app.py#L6, services/api_python/src/app.py#L10, services/api_python/src/app.py#L1",
+      "basis": "Route declarations and startup signals were both detected."
+    },
+    {
+      "claim": "Python runtime dependency footprint likely includes third-party libraries (sample: fastapi, src).",
+      "type": "inference",
+      "confidence": "high",
+      "evidence": [
+        "services/api_python/src/app.py#L1",
+        "services/api_python/src/app.py#L2",
+        "services/api_python/src/generated/module_001.py#L2"
+      ],
+      "evidence_joined": "services/api_python/src/app.py#L1, services/api_python/src/app.py#L2, services/api_python/src/generated/module_001.py#L2",
+      "basis": "Python external import roots include non-stdlib package names."
+    },
+    {
+      "claim": "`Service: services/api_python/src/app.py` is a likely orchestration hotspot with fan-out 6.",
+      "type": "inference",
+      "confidence": "high",
+      "evidence": [
+        "services/api_python/src/app.py#L12",
+        "services/api_python/src/app.py#L2",
+        "services/api_python/src/app.py#L1"
+      ],
+      "evidence_joined": "services/api_python/src/app.py#L12, services/api_python/src/app.py#L2, services/api_python/src/app.py#L1",
+      "basis": "Out-degree ranking on extracted structural graph identifies high fan-out orchestration points."
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+digraph G {
+  graph [rankdir=LR, splines=spline, overlap=false, newrank=true, nodesep=0.52, ranksep=0.82, pad=0.2];
+  node [shape=box, style="rounded,filled", fillcolor="#0f172a", color="#334155", fontcolor="#e2e8f0", fontname="Helvetica"];
+  edge [color="#94a3b8", penwidth=1.1, arrowsize=0.7];
+  subgraph cluster_services {
+    label="SERVICES";
+    color="#475569";
+    style="rounded";
+    penwidth=1.0;
+    N3 [label="API: GET /health", fillcolor="#0f172a"];
+    N4 [label="API: GET /sample", fillcolor="#0f172a"];
+    N5 [label="Batch Job Entrypoint: services/worker_ts/src/inde...", fillcolor="#0f172a"];
+    N6 [label="Service Entrypoint: services/api_python/src/app.p...", fillcolor="#0f172a"];
+    N7 [label="Service Entrypoint: services/ops_go/main.go [go m...", fillcolor="#0f172a"];
+    N8 [label="Service: services/api_python/src/app.py", fillcolor="#0f172a"];
+    N9 [label="Service: services/api_python/src/generated/module...", fillcolor="#0f172a"];
+    N10 [label="Service: services/api_python/src/generated/module...", fillcolor="#0f172a"];
+    N11 [label="Service: services/api_python/src/generated/module...", fillcolor="#0f172a"];
+    N12 [label="Service: services/api_python/src/generated/module...", fillcolor="#0f172a"];
+    N13 [label="Service: services/api_python/src/generated/module...", fillcolor="#0f172a"];
+    N14 [label="Service: services/api_python/src/generated/module...", fillcolor="#0f172a"];
+    N15 [label="Service: services/ops_go/main.go", fillcolor="#0f172a"];
+    N16 [label="Batch Job: services/worker_ts/src/generated/modul...", fillcolor="#0f172a"];
+    N17 [label="Batch Job: services/worker_ts/src/index.ts", fillcolor="#0f172a"];
+    N18 [label="Subsystem: services/api_python/src", fillcolor="#1e293b"];
+  }
+  subgraph cluster_external {
+    label="EXTERNAL";
+    color="#475569";
+    style="rounded";
+    penwidth=1.0;
+    N1 [label="External Package: __future__", fillcolor="#475569"];
+    N2 [label="External Package: fastapi", fillcolor="#475569"];
+  }
+  N8 -> N9;
+  N17 -> N16;
+  N8 -> N9 [style=dashed, color="#64748b", label="imports"];
+  N17 -> N16 [style=dashed, color="#64748b", label="imports"];
+  N8 -> N2 [label="uses"];
+  N8 -> N3 [label="defines"];
+  N8 -> N4 [label="defines"];
+  N8 -> N6 [label="defines"];
+  N18 -> N8 [style=dotted, color="#475569"];
+  N17 -> N5 [label="defines"];
+  N15 -> N7 [label="defines"];
+  N9 -> N1 [label="uses"];
+  N10 -> N1 [label="uses"];
+  N11 -> N1 [label="uses"];
+  N12 -> N1 [label="uses"];
+  N13 -> N1 [label="uses"];
+  N14 -> N1 [label="uses"];
+}

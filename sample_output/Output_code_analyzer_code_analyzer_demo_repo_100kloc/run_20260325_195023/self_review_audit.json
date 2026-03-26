@@ -1,0 +1,39 @@
+{
+  "issue_count": 2,
+  "pass": false,
+  "blocking_issue_count": 2,
+  "severity_counts": {
+    "high": 1,
+    "medium": 1,
+    "low": 0
+  },
+  "findings": [
+    {
+      "id": "traceability_gap",
+      "severity": "medium",
+      "summary": "557 scanned file(s) were not referenced by evidence tokens.",
+      "evidence": [],
+      "files_missing_evidence_sample": [
+        "services/api_python/src/generated/module_019.py",
+        "services/api_python/src/generated/module_020.py",
+        "services/api_python/src/generated/module_021.py",
+        "services/api_python/src/generated/module_022.py",
+        "services/api_python/src/generated/module_023.py",
+        "services/api_python/src/generated/module_024.py",
+        "services/api_python/src/generated/module_025.py",
+        "services/api_python/src/generated/module_026.py",
+        "services/api_python/src/generated/module_027.py",
+        "services/api_python/src/generated/module_028.py"
+      ]
+    },
+    {
+      "id": "unsupported_claims",
+      "severity": "high",
+      "summary": "1 unsupported semantic claim(s) were detected.",
+      "evidence": [
+        "services/api_python/src/generated/module_018.py#L1"
+      ],
+      "claims_semantically_unsupported": 1
+    }
+  ]
+}

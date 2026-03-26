@@ -1,0 +1,13 @@
+{
+  "phase": "analysis",
+  "configured_count": 0,
+  "required_count": 0,
+  "ready_count": 0,
+  "blocking_failure_count": 0,
+  "supported_operation_count": 0,
+  "ready_operation_count": 0,
+  "supported_operations": [],
+  "ready_operations": [],
+  "pass": true,
+  "integrations": []
+}

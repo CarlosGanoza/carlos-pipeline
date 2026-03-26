@@ -1,0 +1,85 @@
+{
+  "policy": {
+    "name": "default",
+    "require_strict_local_only": false,
+    "allow_remote_llm": false,
+    "require_scan_config_file": false,
+    "require_redaction_policy_file": false,
+    "require_classification_rules": false,
+    "min_custom_redaction_rules": 0,
+    "allow_runtime_probe": true,
+    "allowed_runtime_command_patterns": [],
+    "blocked_runtime_command_patterns": [],
+    "max_allowed_file_bytes": null,
+    "fail_on_skipped_large_files": false,
+    "default_data_classification": "unclassified",
+    "classification_rules": []
+  },
+  "policy_path": "",
+  "policy_packs": [],
+  "config_path": "",
+  "requested_mode": "deterministic",
+  "effective_mode": "deterministic",
+  "llm_backend": "ollama",
+  "strict_local_only": true,
+  "runtime_probe_enabled": false,
+  "checks": [
+    {
+      "name": "strict_local_only",
+      "passed": true,
+      "detail": "Policy does not require strict local mode."
+    },
+    {
+      "name": "remote_llm_boundary",
+      "passed": true,
+      "detail": "Remote LLM check skipped because agent mode is inactive or policy permits it."
+    },
+    {
+      "name": "scan_config_presence",
+      "passed": true,
+      "detail": "Policy does not require a scan config file."
+    },
+    {
+      "name": "redaction_policy_presence",
+      "passed": true,
+      "detail": "Policy does not require a redaction policy file."
+    },
+    {
+      "name": "custom_redaction_rule_count",
+      "passed": true,
+      "detail": "Configured custom redaction rules=0, required minimum=0."
+    },
+    {
+      "name": "classification_rules_presence",
+      "passed": true,
+      "detail": "Policy does not require classification rules."
+    },
+    {
+      "name": "max_file_bytes_limit",
+      "passed": true,
+      "detail": "Policy does not cap max_file_bytes."
+    },
+    {
+      "name": "runtime_probe_allowed",
+      "passed": true,
+      "detail": "Runtime probe policy satisfied."
+    },
+    {
+      "name": "runtime_command_allowlist",
+      "passed": true,
+      "detail": "No runtime allowlist enforcement triggered."
+    },
+    {
+      "name": "runtime_command_blocklist",
+      "passed": true,
+      "detail": "No runtime blocklist enforcement triggered."
+    },
+    {
+      "name": "skipped_large_files",
+      "passed": true,
+      "detail": "Skipped large files by size guard=0; policy allows this."
+    }
+  ],
+  "pass": true,
+  "violations": []
+}

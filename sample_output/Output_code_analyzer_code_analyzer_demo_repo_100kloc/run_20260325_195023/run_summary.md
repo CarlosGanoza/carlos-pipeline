@@ -1,0 +1,103 @@
+# Analyzer Run Summary
+
+- Run ID: `run_20260325_195023`
+- Repo Path: `code_analyzer_demo_repo_100kloc`
+- Attempt Count: `1`
+- Resume Count: `0`
+- Requested Mode: `deterministic`
+- Effective Mode: `deterministic`
+- Backend: `ollama`
+- Model: `deterministic_only`
+- LLM Output Policy: `strict_gate`
+- Report Source: `deterministic_initial`
+- Best Effort Accepted: `False`
+- LLM Enhancement Sections Accepted: `0`
+- LLM Enhancement Sections Rejected: `0`
+- Gate Pass: `True`
+- Evidence Coverage: `100.00%`
+- Semantic Claim Coverage: `98.53%`
+- Semantic Validation Pass: `True`
+- Files Missing Evidence: `557`
+- Semantically Unsupported Claims: `1`
+- Report Artifact: `report.md`
+
+## Key Metrics
+- Files: `589`
+- Endpoints: `2`
+- Runtime Services: `0`
+- Services With Verified Endpoints: `0`
+- Runtime-Verified Endpoints: `0`
+- Static-Only Endpoints: `0`
+- Verified Endpoint Rate: `0.00%`
+- High-Confidence Endpoints: `0`
+- High-Confidence Endpoint Rate: `0.00%`
+- Cross-file Inference Endpoints: `0`
+- Runtime Observation Endpoints: `0`
+- Contract Spec Endpoints: `0`
+- Linked Contract Spec Endpoints: `0`
+- Contract-backed Endpoints: `0`
+- Contract Link Rate: `0.00%`
+- Contradiction Issues: `0`
+- Duplicate Endpoint Signatures: `0`
+- Verification Conflicts: `0`
+- Unsupported Claim Audit Issues: `1`
+- Self Review Issues: `2`
+- Self Review Pass: `False`
+- External Integrations Configured: `0`
+- External Integration Blocking Failures: `0`
+- External Integration Plans: `0`
+- External Integration Plan Failures: `0`
+- External Integration Blocking Plan Failures: `0`
+- External Integration Dispatch Specs: `0`
+- External Integration Blocking Dispatch Specs: `0`
+- External Integration Dispatch Results: `0`
+- External Integration Blocking Dispatch Results: `0`
+- External Integration Local Executed Results: `0`
+- External Integration Remote Executed Results: `0`
+- External Integration Total Executed Results: `0`
+- Dependencies: `2`
+- Scripts: `0`
+- Runtime Observations: `0`
+- Highest Data Classification: `unclassified`
+- Classified Files: `589`
+- Files Matched By Classification Rules: `0`
+- Redactions Applied: `0`
+- Files Scanned: `589`
+- Characters Scanned: `2998101`
+- Skipped Large Files: `0`
+- Fact Index Cache Hits: `0`
+- Fact Index Cache Misses: `589`
+- Gather Time Sec: `5.579`
+- Synthesize Time Sec: `0.330`
+- Total Time Sec: `5.581`
+- Security Policy: `default`
+- Classification Counts: `{"unclassified": 589}`
+- Endpoint Provenance Counts: `{"cross_file_inference": 0, "runtime_observation": 0, "static_parse": 2}`
+- Endpoint Confidence Counts: `{"high": 0, "low": 0, "medium": 2}`
+- API Contract Links: `0`
+- Heartbeat Artifact: `heartbeat.json`
+- Lock Lifecycle: `run.lock.json` is held during execution and removed on exit.
+- run_llm_backend_status: `llm_backend_status.json`
+- run_security_policy_audit: `security_policy_audit.json`
+- run_gather_checkpoint: `gather_checkpoint.json`
+- run_synthesis_checkpoint: `synthesis_checkpoint.json`
+- run_traceability: `traceability.json`
+- run_inference_audit: `inference_audit.json`
+- run_contradiction_audit: `contradiction_audit.json`
+- run_contradiction_audit_markdown: `contradiction_audit.md`
+- run_unsupported_claim_audit: `unsupported_claim_audit.json`
+- run_unsupported_claim_audit_markdown: `unsupported_claim_audit.md`
+- run_self_review_audit: `self_review_audit.json`
+- run_self_review_audit_markdown: `self_review_audit.md`
+- run_external_integrations_audit: `external_integrations_audit.json`
+- run_external_integrations_audit_markdown: `external_integrations_audit.md`
+- run_external_integration_plan: `external_integration_plan.json`
+- run_external_integration_plan_markdown: `external_integration_plan.md`
+- run_external_integration_dispatch_specs: `external_integration_dispatch_specs.json`
+- run_external_integration_dispatch_specs_markdown: `external_integration_dispatch_specs.md`
+- run_external_integration_dispatch_results: `external_integration_dispatch_results.json`
+- run_external_integration_dispatch_results_markdown: `external_integration_dispatch_results.md`
+- run_review_audit: `review_audit.json`
+- run_review_audit_sarif: `review_audit.sarif.json`
+- run_architecture_model: `architecture_model.json`
+- run_subsystem_index: `README.md`

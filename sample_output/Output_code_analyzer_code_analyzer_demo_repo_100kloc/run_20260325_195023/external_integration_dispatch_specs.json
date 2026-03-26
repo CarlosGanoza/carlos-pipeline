@@ -1,0 +1,14 @@
+{
+  "phase": "analysis",
+  "spec_count": 0,
+  "required_spec_count": 0,
+  "ready_spec_count": 0,
+  "blocking_spec_failure_count": 0,
+  "transport_count": 0,
+  "operation_count": 0,
+  "transports": [],
+  "operations": [],
+  "failure_kinds": [],
+  "pass": true,
+  "specs": []
+}

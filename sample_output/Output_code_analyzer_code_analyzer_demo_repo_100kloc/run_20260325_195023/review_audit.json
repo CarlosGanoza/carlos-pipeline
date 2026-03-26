@@ -1,0 +1,358 @@
+{
+  "phase": "analysis",
+  "generated_at": "2026-03-26T02:50:29Z",
+  "run_id": "run_20260325_195023",
+  "run_path": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023",
+  "repo_path": "/Users/carlosganoza/Desktop/code_analyzer_demo_repo_100kloc",
+  "run_status": "running",
+  "requested_mode": "deterministic",
+  "effective_mode": "deterministic",
+  "review_policy_path": "",
+  "approval_required": false,
+  "classification_summary": {
+    "default_classification": "unclassified",
+    "highest_classification": "unclassified",
+    "classification_counts": {
+      "unclassified": 589
+    },
+    "classified_files": 589,
+    "matched_files": 0,
+    "rule_count": 0,
+    "matched_rule_names": []
+  },
+  "endpoint_quality_summary": {
+    "total_endpoints": 2,
+    "runtime_verified_endpoints": 0,
+    "static_only_endpoints": 0,
+    "unknown_verification_endpoints": 2,
+    "verified_endpoint_rate": 0.0,
+    "provenance_counts": {
+      "static_parse": 2,
+      "cross_file_inference": 0,
+      "runtime_observation": 0
+    },
+    "confidence_counts": {
+      "high": 0,
+      "medium": 2,
+      "low": 0
+    },
+    "high_confidence_endpoints": 0,
+    "high_confidence_endpoint_rate": 0.0,
+    "cross_file_inference_endpoints": 0,
+    "cross_file_inference_rate": 0.0,
+    "runtime_observation_endpoints": 0,
+    "runtime_observation_rate": 0.0,
+    "protocol_counts": {
+      "http": 2
+    },
+    "contract_spec_endpoints": 0,
+    "linked_contract_spec_endpoints": 0,
+    "unlinked_contract_spec_endpoints": 0,
+    "contract_link_rate": 0.0,
+    "implementation_endpoints": 2,
+    "contract_backed_endpoints": 0,
+    "contract_backed_implementation_rate": 0.0
+  },
+  "grounding_summary": {
+    "gate_pass": true,
+    "evidence_coverage": 1.0,
+    "semantic_coverage": 0.9852941176470589,
+    "files_missing_evidence_count": 557,
+    "claims_semantically_unsupported": 1
+  },
+  "contradiction_summary": {
+    "issue_count": 0,
+    "duplicate_endpoint_signature_count": 0,
+    "endpoint_verification_conflict_count": 0,
+    "issues": []
+  },
+  "unsupported_claim_summary": {
+    "issue_count": 1,
+    "semantic_claim_coverage": 0.985,
+    "claims_semantically_unsupported": 1,
+    "issues": [
+      {
+        "claim": "569 additional scanned files are not listed in this section; see `outputs/fact_index.json` for complete inventory.",
+        "support_score": 0.0,
+        "best_support_basis": "",
+        "evidence": [
+          "services/api_python/src/generated/module_018.py#L1"
+        ]
+      }
+    ]
+  },
+  "self_review_summary": {
+    "issue_count": 2,
+    "pass": false,
+    "blocking_issue_count": 2,
+    "severity_counts": {
+      "high": 1,
+      "medium": 1,
+      "low": 0
+    },
+    "findings": [
+      {
+        "id": "traceability_gap",
+        "severity": "medium",
+        "summary": "557 scanned file(s) were not referenced by evidence tokens.",
+        "evidence": [],
+        "files_missing_evidence_sample": [
+          "services/api_python/src/generated/module_019.py",
+          "services/api_python/src/generated/module_020.py",
+          "services/api_python/src/generated/module_021.py",
+          "services/api_python/src/generated/module_022.py",
+          "services/api_python/src/generated/module_023.py",
+          "services/api_python/src/generated/module_024.py",
+          "services/api_python/src/generated/module_025.py",
+          "services/api_python/src/generated/module_026.py",
+          "services/api_python/src/generated/module_027.py",
+          "services/api_python/src/generated/module_028.py"
+        ]
+      },
+      {
+        "id": "unsupported_claims",
+        "severity": "high",
+        "summary": "1 unsupported semantic claim(s) were detected.",
+        "evidence": [
+          "services/api_python/src/generated/module_018.py#L1"
+        ],
+        "claims_semantically_unsupported": 1
+      }
+    ]
+  },
+  "external_integrations_summary": {
+    "phase": "analysis",
+    "configured_count": 0,
+    "required_count": 0,
+    "ready_count": 0,
+    "blocking_failure_count": 0,
+    "supported_operation_count": 0,
+    "ready_operation_count": 0,
+    "supported_operations": [],
+    "ready_operations": [],
+    "pass": true,
+    "integrations": []
+  },
+  "external_integration_plan_summary": {
+    "phase": "analysis",
+    "plan_count": 0,
+    "required_plan_count": 0,
+    "passing_plan_count": 0,
+    "failing_plan_count": 0,
+    "required_operation_count": 0,
+    "ready_operation_count": 0,
+    "required_operations": [],
+    "ready_operations": [],
+    "blocking_plan_failure_count": 0,
+    "plan_failure_kinds": [],
+    "pass": true,
+    "plans": []
+  },
+  "external_integration_dispatch_specs_summary": {
+    "phase": "analysis",
+    "spec_count": 0,
+    "required_spec_count": 0,
+    "ready_spec_count": 0,
+    "blocking_spec_failure_count": 0,
+    "transport_count": 0,
+    "operation_count": 0,
+    "transports": [],
+    "operations": [],
+    "failure_kinds": [],
+    "pass": true,
+    "specs": []
+  },
+  "external_integration_dispatch_results_summary": {
+    "phase": "analysis",
+    "result_count": 0,
+    "required_result_count": 0,
+    "passing_result_count": 0,
+    "blocking_result_failure_count": 0,
+    "dry_run_result_count": 0,
+    "local_validation_result_count": 0,
+    "local_execution_result_count": 0,
+    "remote_execution_result_count": 0,
+    "executed_result_count": 0,
+    "transport_count": 0,
+    "transports": [],
+    "status_counts": {},
+    "mode_counts": {},
+    "failure_kinds": [],
+    "pass": true,
+    "results": []
+  },
+  "artifact_hashes": [
+    {
+      "artifact_key": "run_report",
+      "path": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/report.md",
+      "exists": true,
+      "kind": "file",
+      "sha256": "382bb67449cd7b19d8fab3fbf715a18ffa86092e7bc33db531ead43f0081f612",
+      "size_bytes": 24297
+    },
+    {
+      "artifact_key": "run_fact_index",
+      "path": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/fact_index.json",
+      "exists": true,
+      "kind": "file",
+      "sha256": "6193bddd18404d8dbef8efa7b2f774fc1fcd42da896bb6425179c0ee3e7eb02c",
+      "size_bytes": 1275120
+    },
+    {
+      "artifact_key": "run_claim_support_index",
+      "path": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/claim_support_index.json",
+      "exists": true,
+      "kind": "file",
+      "sha256": "616da3f14126957268edaced83a5d8406ac4e1178ba20db2b677baf19be0dfda",
+      "size_bytes": 622210
+    },
+    {
+      "artifact_key": "run_traceability",
+      "path": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/traceability.json",
+      "exists": true,
+      "kind": "file",
+      "sha256": "c910be9fc1fddfcd8936af235acb0f7b2dbb76767e4e99c50c5025266006d62f",
+      "size_bytes": 3023
+    },
+    {
+      "artifact_key": "run_inference_audit",
+      "path": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/inference_audit.json",
+      "exists": true,
+      "kind": "file",
+      "sha256": "b1f151721e0e48a0f664744e88aac0a83fb2a5efe53fdd8830f63ccf72ddd570",
+      "size_bytes": 1736
+    },
+    {
+      "artifact_key": "run_contradiction_audit",
+      "path": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/contradiction_audit.json",
+      "exists": true,
+      "kind": "file",
+      "sha256": "298ef2650042c789984bf697137b6305c92f0208adfda1370073ac27211ae37b",
+      "size_bytes": 126
+    },
+    {
+      "artifact_key": "run_contradiction_audit_markdown",
+      "path": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/contradiction_audit.md",
+      "exists": true,
+      "kind": "file",
+      "sha256": "37c15efc3f89c4c44a745c97223a7960ff0f019d57f65f0834c3cd86cc71fd23",
+      "size_bytes": 138
+    },
+    {
+      "artifact_key": "run_unsupported_claim_audit",
+      "path": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/unsupported_claim_audit.json",
+      "exists": true,
+      "kind": "file",
+      "sha256": "9a7046e8e341e8b3e344559da0fa0c1e21bf3a4021cd550dc9cad7b4e47342f3",
+      "size_bytes": 411
+    },
+    {
+      "artifact_key": "run_unsupported_claim_audit_markdown",
+      "path": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/unsupported_claim_audit.md",
+      "exists": true,
+      "kind": "file",
+      "sha256": "1ecc072432a9541926f0b903ed54e1a5afc78038a784320d5827ffa23410ecf3",
+      "size_bytes": 345
+    },
+    {
+      "artifact_key": "run_self_review_audit",
+      "path": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/self_review_audit.json",
+      "exists": true,
+      "kind": "file",
+      "sha256": "2a352b5e79b61f9c50fe62a9d5eb6bb93858e310ea2ca10d970dbef57393bfd8",
+      "size_bytes": 1247
+    },
+    {
+      "artifact_key": "run_self_review_audit_markdown",
+      "path": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/self_review_audit.md",
+      "exists": true,
+      "kind": "file",
+      "sha256": "4371b3076c72824108529827ac58f50d2ed8c57329e0b9cee073b7c45778d571",
+      "size_bytes": 440
+    },
+    {
+      "artifact_key": "run_external_integrations_audit",
+      "path": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/external_integrations_audit.json",
+      "exists": true,
+      "kind": "file",
+      "sha256": "dcb45f09553ae357af0a23fd9a20770d0ebec9c078afb41b42ac310b1f328710",
+      "size_bytes": 282
+    },
+    {
+      "artifact_key": "run_external_integrations_audit_markdown",
+      "path": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/external_integrations_audit.md",
+      "exists": true,
+      "kind": "file",
+      "sha256": "2723f649af4e2ae2af60c0c89976beac11bea977f89b48d6099690593ca717cc",
+      "size_bytes": 264
+    },
+    {
+      "artifact_key": "run_external_integration_plan",
+      "path": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/external_integration_plan.json",
+      "exists": true,
+      "kind": "file",
+      "sha256": "01bc5072d20fb78ace7467ecf2b22884f940954a05b48f1e3b1eda8f159a99c0",
+      "size_bytes": 339
+    },
+    {
+      "artifact_key": "run_external_integration_plan_markdown",
+      "path": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/external_integration_plan.md",
+      "exists": true,
+      "kind": "file",
+      "sha256": "598177124da2e07e0aa9e11dfdd37186215be260bd923ddecb6ff818e8e77101",
+      "size_bytes": 290
+    },
+    {
+      "artifact_key": "run_external_integration_dispatch_specs",
+      "path": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/external_integration_dispatch_specs.json",
+      "exists": true,
+      "kind": "file",
+      "sha256": "5327a046dc2a0dfcfeae39a81d4ef7639806305e807ff7956fbda6811da622cf",
+      "size_bytes": 275
+    },
+    {
+      "artifact_key": "run_external_integration_dispatch_specs_markdown",
+      "path": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/external_integration_dispatch_specs.md",
+      "exists": true,
+      "kind": "file",
+      "sha256": "7f48a4484287203fe4ca444db1385ad00c732008e5353b7d5becbc7c413f72ea",
+      "size_bytes": 250
+    },
+    {
+      "artifact_key": "run_external_integration_dispatch_results",
+      "path": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/external_integration_dispatch_results.json",
+      "exists": true,
+      "kind": "file",
+      "sha256": "b2bfd729cae84b0b9cbbc0ef5dd2c6a9a68e31fb46996d236db2e7a4953e1fcb",
+      "size_bytes": 459
+    },
+    {
+      "artifact_key": "run_external_integration_dispatch_results_markdown",
+      "path": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/external_integration_dispatch_results.md",
+      "exists": true,
+      "kind": "file",
+      "sha256": "1ca11b4d9b91b3757ff74fd97c2f656927028ee6e2612bd8e84f7a8dabc121f3",
+      "size_bytes": 375
+    },
+    {
+      "artifact_key": "run_architecture_model",
+      "path": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/architecture_model.json",
+      "exists": true,
+      "kind": "file",
+      "sha256": "a17fa1dad7251f7eb324bb9f716535d0c7491ac1f69ce024324c27bd50bed0b2",
+      "size_bytes": 674348
+    },
+    {
+      "artifact_key": "run_subsystem_index",
+      "path": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/subsystems/README.md",
+      "exists": true,
+      "kind": "file",
+      "sha256": "02894ed0915031d0e7ef5baa7217fa6b50d4c5400a1d86cf67577c629fa559aa",
+      "size_bytes": 418
+    }
+  ],
+  "approval_present": false,
+  "approval_count": 0,
+  "approval_requirements_met": true,
+  "signature": {}
+}

@@ -1,0 +1,390 @@
+{
+  "run_id": "run_20260325_195023",
+  "started_at": "2026-03-26T02:50:23Z",
+  "completed_at": "2026-03-26T02:50:29Z",
+  "status": "completed",
+  "requested_mode": "deterministic",
+  "mode": "deterministic",
+  "repo_path": "/Users/carlosganoza/Desktop/code_analyzer_demo_repo_100kloc",
+  "backend": "ollama",
+  "model": "deterministic_only",
+  "llm_output_policy": "strict_gate",
+  "grounding_profile": "standard",
+  "events": [
+    {
+      "ts": "2026-03-26T02:50:23Z",
+      "stage": "plan",
+      "message": "Created standalone analyzer run plan."
+    },
+    {
+      "ts": "2026-03-26T02:50:23Z",
+      "stage": "gather",
+      "message": "Reading repository and building deterministic fact inventory."
+    },
+    {
+      "ts": "2026-03-26T02:50:28Z",
+      "stage": "synthesize",
+      "message": "Starting standalone documentation synthesis."
+    },
+    {
+      "ts": "2026-03-26T02:50:28Z",
+      "stage": "synthesize",
+      "message": "Built deterministic-first report and applied validated LLM enhancement sections.",
+      "data": {
+        "source": "deterministic_initial",
+        "llm_sections_applied": 0,
+        "llm_sections_rejected": 0
+      }
+    },
+    {
+      "ts": "2026-03-26T02:50:28Z",
+      "stage": "synthesize",
+      "message": "Built deterministic report in deterministic mode."
+    },
+    {
+      "ts": "2026-03-26T02:50:29Z",
+      "stage": "subsystems",
+      "message": "Generated subsystem-level documentation artifacts.",
+      "data": {
+        "subsystem_count": 5
+      }
+    },
+    {
+      "ts": "2026-03-26T02:50:29Z",
+      "stage": "compare",
+      "message": "No previous comparable run found for this repository."
+    }
+  ],
+  "artifacts": {
+    "run_lock": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/run.lock.json",
+    "run_heartbeat": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/heartbeat.json",
+    "run_llm_backend_status": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/llm_backend_status.json",
+    "run_security_policy_audit": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/security_policy_audit.json",
+    "run_fact_index": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/fact_index.json",
+    "run_model_safe_fact_index": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/model_safe_fact_index.json",
+    "run_prompt_fact_context": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/prompt_fact_context.json",
+    "run_claim_support_index": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/claim_support_index.json",
+    "run_gather_checkpoint": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/gather_checkpoint.json",
+    "run_synthesis_checkpoint": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/synthesis_checkpoint.json",
+    "run_traceability": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/traceability.json",
+    "run_inference_audit": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/inference_audit.json",
+    "run_contradiction_audit": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/contradiction_audit.json",
+    "run_contradiction_audit_markdown": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/contradiction_audit.md",
+    "run_unsupported_claim_audit": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/unsupported_claim_audit.json",
+    "run_unsupported_claim_audit_markdown": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/unsupported_claim_audit.md",
+    "run_self_review_audit": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/self_review_audit.json",
+    "run_self_review_audit_markdown": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/self_review_audit.md",
+    "run_external_integrations_audit": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/external_integrations_audit.json",
+    "run_external_integrations_audit_markdown": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/external_integrations_audit.md",
+    "run_external_integration_plan": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/external_integration_plan.json",
+    "run_external_integration_plan_markdown": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/external_integration_plan.md",
+    "run_external_integration_dispatch_specs": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/external_integration_dispatch_specs.json",
+    "run_external_integration_dispatch_specs_markdown": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/external_integration_dispatch_specs.md",
+    "run_external_integration_dispatch_results": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/external_integration_dispatch_results.json",
+    "run_external_integration_dispatch_results_markdown": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/external_integration_dispatch_results.md",
+    "run_report": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/report.md",
+    "run_architecture_model": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/architecture_model.json",
+    "run_mermaid": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/architecture.mmd",
+    "run_dot": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/architecture.dot",
+    "run_likec4": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/architecture.likec4",
+    "run_svg": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/architecture_clean.svg",
+    "run_png": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/architecture_clean.png",
+    "root_architecture_model": "",
+    "root_dot": "",
+    "root_likec4": "",
+    "root_svg": "",
+    "root_png": "",
+    "run_subsystem_dir": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/subsystems",
+    "run_subsystem_index": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/subsystems/README.md",
+    "run_review_audit": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/review_audit.json",
+    "run_review_audit_sarif": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/review_audit.sarif.json",
+    "run_summary": "/Users/carlosganoza/Desktop/Output_code_analyzer_code_analyzer_demo_repo_100kloc/run_20260325_195023/run_summary.md"
+  },
+  "attempt_count": 1,
+  "resume_count": 0,
+  "current_stage": "completed",
+  "review_policy_path": "",
+  "repo_fingerprint": "a99bcaacfb83b1c95ce24d109ccf0f14156fdc2c984c3248851727cbe7a99541",
+  "llm_enhancements": {
+    "requested": false,
+    "base_gate_pass": true,
+    "accepted_sections_count": 0,
+    "accepted_section_headings": [],
+    "rejected_section_headings": [],
+    "sections": [],
+    "applied_sections": []
+  },
+  "contradiction_audit": {
+    "issue_count": 0,
+    "duplicate_endpoint_signature_count": 0,
+    "endpoint_verification_conflict_count": 0,
+    "issues": []
+  },
+  "unsupported_claim_audit": {
+    "issue_count": 1,
+    "semantic_claim_coverage": 0.985,
+    "claims_semantically_unsupported": 1,
+    "issues": [
+      {
+        "claim": "569 additional scanned files are not listed in this section; see `outputs/fact_index.json` for complete inventory.",
+        "support_score": 0.0,
+        "best_support_basis": "",
+        "evidence": [
+          "services/api_python/src/generated/module_018.py#L1"
+        ]
+      }
+    ]
+  },
+  "self_review_audit": {
+    "issue_count": 2,
+    "pass": false,
+    "blocking_issue_count": 2,
+    "severity_counts": {
+      "high": 1,
+      "medium": 1,
+      "low": 0
+    },
+    "findings": [
+      {
+        "id": "traceability_gap",
+        "severity": "medium",
+        "summary": "557 scanned file(s) were not referenced by evidence tokens.",
+        "evidence": [],
+        "files_missing_evidence_sample": [
+          "services/api_python/src/generated/module_019.py",
+          "services/api_python/src/generated/module_020.py",
+          "services/api_python/src/generated/module_021.py",
+          "services/api_python/src/generated/module_022.py",
+          "services/api_python/src/generated/module_023.py",
+          "services/api_python/src/generated/module_024.py",
+          "services/api_python/src/generated/module_025.py",
+          "services/api_python/src/generated/module_026.py",
+          "services/api_python/src/generated/module_027.py",
+          "services/api_python/src/generated/module_028.py"
+        ]
+      },
+      {
+        "id": "unsupported_claims",
+        "severity": "high",
+        "summary": "1 unsupported semantic claim(s) were detected.",
+        "evidence": [
+          "services/api_python/src/generated/module_018.py#L1"
+        ],
+        "claims_semantically_unsupported": 1
+      }
+    ]
+  },
+  "external_integrations_audit": {
+    "phase": "analysis",
+    "configured_count": 0,
+    "required_count": 0,
+    "ready_count": 0,
+    "blocking_failure_count": 0,
+    "supported_operation_count": 0,
+    "ready_operation_count": 0,
+    "supported_operations": [],
+    "ready_operations": [],
+    "pass": true,
+    "integrations": []
+  },
+  "external_integration_plan": {
+    "phase": "analysis",
+    "plan_count": 0,
+    "required_plan_count": 0,
+    "passing_plan_count": 0,
+    "failing_plan_count": 0,
+    "required_operation_count": 0,
+    "ready_operation_count": 0,
+    "required_operations": [],
+    "ready_operations": [],
+    "blocking_plan_failure_count": 0,
+    "plan_failure_kinds": [],
+    "pass": true,
+    "plans": []
+  },
+  "external_integration_dispatch_specs": {
+    "phase": "analysis",
+    "spec_count": 0,
+    "required_spec_count": 0,
+    "ready_spec_count": 0,
+    "blocking_spec_failure_count": 0,
+    "transport_count": 0,
+    "operation_count": 0,
+    "transports": [],
+    "operations": [],
+    "failure_kinds": [],
+    "pass": true,
+    "specs": []
+  },
+  "external_integration_dispatch_results": {
+    "phase": "analysis",
+    "result_count": 0,
+    "required_result_count": 0,
+    "passing_result_count": 0,
+    "blocking_result_failure_count": 0,
+    "dry_run_result_count": 0,
+    "local_validation_result_count": 0,
+    "local_execution_result_count": 0,
+    "remote_execution_result_count": 0,
+    "executed_result_count": 0,
+    "transport_count": 0,
+    "transports": [],
+    "status_counts": {},
+    "mode_counts": {},
+    "failure_kinds": [],
+    "pass": true,
+    "results": []
+  },
+  "report_source": "deterministic_initial",
+  "best_effort_accepted": false,
+  "gate": {
+    "pass": true,
+    "coverage": 1.0,
+    "semantic_coverage": 0.9852941176470589,
+    "grounding_profile": "standard",
+    "min_coverage_required": 0.9,
+    "min_semantic_coverage_required": 0.8,
+    "min_claim_support_score_required": 0.55,
+    "min_factual_bullets_required": 5,
+    "semantic_pass": true,
+    "unsupported_claims_pass": true,
+    "strict_traceability_enabled": false,
+    "strict_traceability_pass": true
+  },
+  "validation": {
+    "bullet_lines": 68,
+    "factual_bullets": 68,
+    "unknown_claims": 0,
+    "unknown_with_valid_none": 0,
+    "unknown_without_none": 0,
+    "evidence_tags": 68,
+    "evidence_paths_total": 121,
+    "evidence_paths_unique": 32,
+    "valid_evidence_paths": 32,
+    "valid_evidence_paths_list": [
+      "README.md",
+      "services/api_python/requirements.txt",
+      "services/api_python/src/app.py",
+      "services/api_python/src/generated/module_001.py",
+      "services/api_python/src/generated/module_002.py",
+      "services/api_python/src/generated/module_003.py",
+      "services/api_python/src/generated/module_004.py",
+      "services/api_python/src/generated/module_005.py",
+      "services/api_python/src/generated/module_006.py",
+      "services/api_python/src/generated/module_007.py",
+      "services/api_python/src/generated/module_008.py",
+      "services/api_python/src/generated/module_009.py",
+      "services/api_python/src/generated/module_010.py",
+      "services/api_python/src/generated/module_011.py",
+      "services/api_python/src/generated/module_012.py",
+      "services/api_python/src/generated/module_013.py",
+      "services/api_python/src/generated/module_014.py",
+      "services/api_python/src/generated/module_015.py",
+      "services/api_python/src/generated/module_016.py",
+      "services/api_python/src/generated/module_017.py",
+      "services/api_python/src/generated/module_018.py",
+      "services/catalog_java/pom.xml",
+      "services/catalog_java/src/main/java/com/demo/Application.java",
+      "services/catalog_java/src/main/java/com/demo/generated/Module001.java",
+      "services/ops_go/go.mod",
+      "services/ops_go/internal/generated/module_001.go",
+      "services/ops_go/internal/generated/module_002.go",
+      "services/ops_go/main.go",
+      "services/worker_ts/package.json",
+      "services/worker_ts/src/generated/module_001.ts",
+      "services/worker_ts/src/generated/module_002.ts",
+      "services/worker_ts/src/index.ts"
+    ],
+    "invalid_evidence_paths_count": 0,
+    "invalid_evidence_paths": [],
+    "scanned_files_count": 589,
+    "file_evidence_coverage": 0.05432937181663837,
+    "files_missing_evidence_count": 557,
+    "files_missing_evidence_sample": [
+      "services/api_python/src/generated/module_019.py",
+      "services/api_python/src/generated/module_020.py",
+      "services/api_python/src/generated/module_021.py",
+      "services/api_python/src/generated/module_022.py",
+      "services/api_python/src/generated/module_023.py",
+      "services/api_python/src/generated/module_024.py",
+      "services/api_python/src/generated/module_025.py",
+      "services/api_python/src/generated/module_026.py",
+      "services/api_python/src/generated/module_027.py",
+      "services/api_python/src/generated/module_028.py",
+      "services/api_python/src/generated/module_029.py",
+      "services/api_python/src/generated/module_030.py",
+      "services/api_python/src/generated/module_031.py",
+      "services/api_python/src/generated/module_032.py",
+      "services/api_python/src/generated/module_033.py",
+      "services/api_python/src/generated/module_034.py",
+      "services/api_python/src/generated/module_035.py",
+      "services/api_python/src/generated/module_036.py",
+      "services/api_python/src/generated/module_037.py",
+      "services/api_python/src/generated/module_038.py",
+      "services/api_python/src/generated/module_039.py",
+      "services/api_python/src/generated/module_040.py",
+      "services/api_python/src/generated/module_041.py",
+      "services/api_python/src/generated/module_042.py",
+      "services/api_python/src/generated/module_043.py",
+      "services/api_python/src/generated/module_044.py",
+      "services/api_python/src/generated/module_045.py",
+      "services/api_python/src/generated/module_046.py",
+      "services/api_python/src/generated/module_047.py",
+      "services/api_python/src/generated/module_048.py",
+      "services/api_python/src/generated/module_049.py",
+      "services/api_python/src/generated/module_050.py",
+      "services/api_python/src/generated/module_051.py",
+      "services/api_python/src/generated/module_052.py",
+      "services/api_python/src/generated/module_053.py",
+      "services/api_python/src/generated/module_054.py",
+      "services/api_python/src/generated/module_055.py",
+      "services/api_python/src/generated/module_056.py",
+      "services/api_python/src/generated/module_057.py",
+      "services/api_python/src/generated/module_058.py",
+      "services/api_python/src/generated/module_059.py",
+      "services/api_python/src/generated/module_060.py",
+      "services/api_python/src/generated/module_061.py",
+      "services/api_python/src/generated/module_062.py",
+      "services/api_python/src/generated/module_063.py",
+      "services/api_python/src/generated/module_064.py",
+      "services/api_python/src/generated/module_065.py",
+      "services/api_python/src/generated/module_066.py",
+      "services/api_python/src/generated/module_067.py",
+      "services/api_python/src/generated/module_068.py"
+    ],
+    "claims_without_evidence": 0,
+    "claims_with_valid_evidence": 68,
+    "claims_with_invalid_evidence": 0,
+    "claims_semantically_supported": 67,
+    "claims_semantically_unsupported": 1,
+    "semantic_claims_total": 68,
+    "semantic_claim_coverage": 0.9852941176470589,
+    "semantic_score_avg": 0.9852941176470589,
+    "unsupported_claims_sample": [
+      "569 additional scanned files are not listed in this section; see `outputs/fact_index.json` for complete inventory."
+    ],
+    "unsupported_claim_details": [
+      {
+        "claim": "569 additional scanned files are not listed in this section; see `outputs/fact_index.json` for complete inventory.",
+        "evidence": [
+          "services/api_python/src/generated/module_018.py#L1"
+        ],
+        "support_score": 0.0,
+        "best_support_basis": ""
+      }
+    ],
+    "invalid_evidence_tokens_count": 0,
+    "invalid_evidence_tokens": [],
+    "classification_summary": {
+      "default_classification": "unclassified",
+      "highest_classification": "unclassified",
+      "classification_counts": {
+        "unclassified": 589
+      },
+      "classified_files": 589,
+      "matched_files": 0,
+      "rule_count": 0,
+      "matched_rule_names": []
+    }
+  }
+}

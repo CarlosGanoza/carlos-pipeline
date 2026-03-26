@@ -1,0 +1,44 @@
+graph TD
+
+subgraph services[SERVICES]
+N3["API - GET health"]
+N4["API - GET sample"]
+N5["Batch Job Entrypoint - services worker_ts src index.ts [entry ..."]
+N6["Service Entrypoint - services api_python src app.py [entry file]"]
+N7["Service Entrypoint - services ops_go main.go [go main]"]
+N8["Service - services api_python src app.py"]
+N9["Service - services api_python src generated module_001.py"]
+N10["Service - services api_python src generated module_002.py"]
+N11["Service - services api_python src generated module_003.py"]
+N12["Service - services api_python src generated module_004.py"]
+N13["Service - services api_python src generated module_005.py"]
+N14["Service - services api_python src generated module_006.py"]
+N15["Service - services ops_go main.go"]
+N16["Batch Job - services worker_ts src generated module_001.ts"]
+N17["Batch Job - services worker_ts src index.ts"]
+N18["Subsystem - services api_python src"]
+end
+
+subgraph external[EXTERNAL]
+N1["External Package - __future__"]
+N2["External Package - fastapi"]
+end
+
+
+N8 --> N9
+N17 --> N16
+N8 -->|imports| N9
+N17 -->|imports| N16
+N8 -->|uses| N2
+N8 -->|defines| N3
+N8 -->|defines| N4
+N8 -->|defines| N6
+N18 --> N8
+N17 -->|defines| N5
+N15 -->|defines| N7
+N9 -->|uses| N1
+N10 -->|uses| N1
+N11 -->|uses| N1
+N12 -->|uses| N1
+N13 -->|uses| N1
+N14 -->|uses| N1

@@ -1,0 +1,15 @@
+{
+  "issue_count": 1,
+  "semantic_claim_coverage": 0.985,
+  "claims_semantically_unsupported": 1,
+  "issues": [
+    {
+      "claim": "569 additional scanned files are not listed in this section; see `outputs/fact_index.json` for complete inventory.",
+      "support_score": 0.0,
+      "best_support_basis": "",
+      "evidence": [
+        "services/api_python/src/generated/module_018.py#L1"
+      ]
+    }
+  ]
+}
