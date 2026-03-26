@@ -1,0 +1,343 @@
+{
+  "version": "fact-file-v85",
+  "files": {
+    "Dockerfile": {
+      "parser_version": "fact-file-v85",
+      "size": 17,
+      "mtime_ns": 1771554187711167286,
+      "line_count": 2,
+      "facts": {
+        "file": {
+          "path": "Dockerfile",
+          "line_count": 2
+        },
+        "language": "dockerfile",
+        "entrypoints": [],
+        "event_dispatches": [],
+        "imports": [],
+        "js_import_bindings": [],
+        "js_router_mounts": [],
+        "js_router_exports": [],
+        "js_graphql_exported_bindings": [],
+        "js_graphql_imported_root_blocks": [],
+        "csharp_grpc_service_bindings": [],
+        "csharp_grpc_service_mappings": [],
+        "module_resolution_hints": [],
+        "python_import_aliases": [],
+        "dependencies": [],
+        "api_endpoints": [],
+        "scripts": [],
+        "run_hints": [],
+        "infrastructure": [
+          {
+            "type": "container_or_compose",
+            "file": "Dockerfile",
+            "line": 1,
+            "evidence": "Dockerfile#L1"
+          }
+        ],
+        "ai_signals": [],
+        "framework_signals": [],
+        "sql_entities": [],
+        "sql_queries": [],
+        "python_symbols": [],
+        "python_calls": [],
+        "python_module_state": [],
+        "language_symbols": [],
+        "language_calls": [],
+        "runtime_observations": [],
+        "component_presence": {
+          "frontend": false,
+          "backend": false,
+          "infrastructure": true,
+          "ai": false,
+          "output": false
+        },
+        "mermaid_node_presence": {
+          "FE": false,
+          "NX": false,
+          "RE": false,
+          "BE": false,
+          "PY": false,
+          "NO": false,
+          "DO": true,
+          "LC": true,
+          "OL": false,
+          "EG": false,
+          "UI": false,
+          "DG": false
+        }
+      }
+    },
+    "README.md": {
+      "parser_version": "fact-file-v85",
+      "size": 10,
+      "mtime_ns": 1771554187711218911,
+      "line_count": 2,
+      "facts": {
+        "file": {
+          "path": "README.md",
+          "line_count": 2
+        },
+        "language": "markdown",
+        "entrypoints": [],
+        "event_dispatches": [],
+        "imports": [],
+        "js_import_bindings": [],
+        "js_router_mounts": [],
+        "js_router_exports": [],
+        "js_graphql_exported_bindings": [],
+        "js_graphql_imported_root_blocks": [],
+        "csharp_grpc_service_bindings": [],
+        "csharp_grpc_service_mappings": [],
+        "module_resolution_hints": [],
+        "python_import_aliases": [],
+        "dependencies": [],
+        "api_endpoints": [],
+        "scripts": [],
+        "run_hints": [],
+        "infrastructure": [],
+        "ai_signals": [],
+        "framework_signals": [],
+        "sql_entities": [],
+        "sql_queries": [],
+        "python_symbols": [],
+        "python_calls": [],
+        "python_module_state": [],
+        "language_symbols": [],
+        "language_calls": [],
+        "runtime_observations": [],
+        "component_presence": {
+          "frontend": false,
+          "backend": false,
+          "infrastructure": false,
+          "ai": false,
+          "output": true
+        },
+        "mermaid_node_presence": {
+          "FE": false,
+          "NX": false,
+          "RE": false,
+          "BE": false,
+          "PY": false,
+          "NO": false,
+          "DO": false,
+          "LC": false,
+          "OL": false,
+          "EG": false,
+          "UI": true,
+          "DG": true
+        }
+      }
+    },
+    "package.json": {
+      "parser_version": "fact-file-v85",
+      "size": 99,
+      "mtime_ns": 1771554187711116786,
+      "line_count": 8,
+      "facts": {
+        "file": {
+          "path": "package.json",
+          "line_count": 8
+        },
+        "language": "json",
+        "entrypoints": [],
+        "event_dispatches": [],
+        "imports": [],
+        "js_import_bindings": [],
+        "js_router_mounts": [],
+        "js_router_exports": [],
+        "js_graphql_exported_bindings": [],
+        "js_graphql_imported_root_blocks": [],
+        "csharp_grpc_service_bindings": [],
+        "csharp_grpc_service_mappings": [],
+        "module_resolution_hints": [],
+        "python_import_aliases": [],
+        "dependencies": [
+          {
+            "name": "react",
+            "version": "18.2.0",
+            "file": "package.json",
+            "line": 6,
+            "evidence": "package.json#L6"
+          }
+        ],
+        "api_endpoints": [],
+        "scripts": [
+          {
+            "name": "start",
+            "command": "node server.js",
+            "file": "package.json",
+            "line": 3,
+            "evidence": "package.json#L3"
+          }
+        ],
+        "run_hints": [],
+        "infrastructure": [],
+        "ai_signals": [],
+        "framework_signals": [
+          {
+            "name": "react",
+            "type": "frontend",
+            "evidence": "package.json#L6"
+          }
+        ],
+        "sql_entities": [],
+        "sql_queries": [],
+        "python_symbols": [],
+        "python_calls": [],
+        "python_module_state": [],
+        "language_symbols": [],
+        "language_calls": [],
+        "runtime_observations": [],
+        "component_presence": {
+          "frontend": true,
+          "backend": false,
+          "infrastructure": false,
+          "ai": false,
+          "output": false
+        },
+        "mermaid_node_presence": {
+          "FE": true,
+          "NX": false,
+          "RE": true,
+          "BE": false,
+          "PY": false,
+          "NO": false,
+          "DO": false,
+          "LC": false,
+          "OL": false,
+          "EG": false,
+          "UI": false,
+          "DG": false
+        }
+      }
+    },
+    "src/app.py": {
+      "parser_version": "fact-file-v85",
+      "size": 92,
+      "mtime_ns": 1771561031403669665,
+      "line_count": 6,
+      "facts": {
+        "file": {
+          "path": "src/app.py",
+          "line_count": 6
+        },
+        "language": "python",
+        "entrypoints": [
+          {
+            "kind": "conventional_entry_file",
+            "file": "src/app.py",
+            "line": 1,
+            "evidence": "src/app.py#L1"
+          }
+        ],
+        "event_dispatches": [],
+        "imports": [
+          {
+            "package": "fastapi",
+            "file": "src/app.py",
+            "line": 1,
+            "evidence": "src/app.py#L1"
+          }
+        ],
+        "js_import_bindings": [],
+        "js_router_mounts": [],
+        "js_router_exports": [],
+        "js_graphql_exported_bindings": [],
+        "js_graphql_imported_root_blocks": [],
+        "csharp_grpc_service_bindings": [],
+        "csharp_grpc_service_mappings": [],
+        "module_resolution_hints": [],
+        "python_import_aliases": [
+          {
+            "alias": "FastAPI",
+            "target_module": "fastapi",
+            "target_symbol": "FastAPI",
+            "file": "src/app.py",
+            "line": 1,
+            "evidence": "src/app.py#L1"
+          }
+        ],
+        "dependencies": [],
+        "api_endpoints": [
+          {
+            "method": "GET",
+            "route": "/ok",
+            "framework": "python_ast_decorator",
+            "file": "src/app.py",
+            "line": 3,
+            "evidence": "src/app.py#L3"
+          }
+        ],
+        "scripts": [],
+        "run_hints": [],
+        "infrastructure": [],
+        "ai_signals": [],
+        "framework_signals": [
+          {
+            "name": "fastapi",
+            "type": "backend",
+            "evidence": "src/app.py#L1"
+          }
+        ],
+        "sql_entities": [],
+        "sql_queries": [],
+        "python_symbols": [
+          {
+            "kind": "function",
+            "name": "ok",
+            "qualname": "src.app.ok",
+            "module": "src.app",
+            "file": "src/app.py",
+            "line": 4,
+            "evidence": "src/app.py#L4"
+          }
+        ],
+        "python_calls": [
+          {
+            "caller": "src.app",
+            "callee": "FastAPI",
+            "module": "src.app",
+            "file": "src/app.py",
+            "line": 2,
+            "evidence": "src/app.py#L2"
+          },
+          {
+            "caller": "src.app.ok",
+            "callee": "app.get",
+            "module": "src.app",
+            "file": "src/app.py",
+            "line": 3,
+            "evidence": "src/app.py#L3"
+          }
+        ],
+        "python_module_state": [],
+        "language_symbols": [],
+        "language_calls": [],
+        "runtime_observations": [],
+        "component_presence": {
+          "frontend": false,
+          "backend": true,
+          "infrastructure": false,
+          "ai": false,
+          "output": false
+        },
+        "mermaid_node_presence": {
+          "FE": false,
+          "NX": false,
+          "RE": false,
+          "BE": true,
+          "PY": true,
+          "NO": false,
+          "DO": false,
+          "LC": false,
+          "OL": false,
+          "EG": false,
+          "UI": false,
+          "DG": false
+        }
+      }
+    }
+  }
+}

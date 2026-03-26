@@ -1,0 +1,5580 @@
+{
+  "runs_dir": "evaluation_runs_ci",
+  "quality_gates": {
+    "project_scorecard": {
+      "privacy.security_policy_pass_rate": {
+        "min": 1.0
+      },
+      "accuracy.gate_pass_rate": {
+        "min": 1.0
+      },
+      "goldens.mean_precision": {
+        "min": 1.0
+      },
+      "goldens.mean_recall": {
+        "min": 1.0
+      },
+      "goldens.mean_f1": {
+        "min": 1.0
+      },
+      "accuracy.mean_evidence_coverage": {
+        "min": 0.95
+      },
+      "navigability.report_rate": {
+        "min": 1.0
+      },
+      "navigability.subsystem_index_rate": {
+        "min": 1.0
+      }
+    },
+    "case_defaults": {
+      "summary.gate_pass_rate": {
+        "min": 1.0
+      },
+      "summary.goldens_configured_runs": {
+        "min": 1
+      },
+      "summary.mean_golden_f1": {
+        "min": 1.0
+      },
+      "summary.mean_evidence_coverage": {
+        "min": 0.95
+      },
+      "summary.subsystem_index_rate": {
+        "min": 1.0
+      }
+    },
+    "cases": {
+      "updatability_repeat": {
+        "summary.run_diff_artifact_rate": {
+          "min": 1.0
+        }
+      }
+    }
+  },
+  "cases": [
+    {
+      "name": "noise_repo_smoke",
+      "repo_path": "./tests/fixtures/noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /ok"
+        ],
+        "dependencies": [
+          "react"
+        ]
+      }
+    },
+    {
+      "name": "updatability_repeat",
+      "repo_path": "./tests/fixtures/updatability_proof_repo",
+      "mode": "deterministic",
+      "repeat": 2,
+      "goldens": {
+        "endpoints": [
+          "GET /health",
+          "POST /status"
+        ],
+        "dependencies": [
+          "fastapi",
+          "ollama"
+        ]
+      }
+    },
+    {
+      "name": "demo_multistack_fixture",
+      "repo_path": "./tests/fixtures/demo_multistack_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /java-health",
+          "POST /java-orders",
+          "POST /csharp-auth",
+          "GET /ruby-health",
+          "POST /ruby-session",
+          "GET /health",
+          "POST /tickets",
+          "GET /ready",
+          "GET /metrics",
+          "GET /php-health",
+          "POST /php-users",
+          "GET /status",
+          "POST /login"
+        ],
+        "dependencies": [
+          "express",
+          "react"
+        ],
+        "framework_signals": [
+          {
+            "name": "express",
+            "type": "backend"
+          },
+          {
+            "name": "fastapi",
+            "type": "backend"
+          },
+          {
+            "name": "react",
+            "type": "frontend"
+          },
+          {
+            "name": "spring",
+            "type": "backend"
+          }
+        ],
+        "infrastructure": [
+          {
+            "type": "ci_workflow",
+            "file": ".github/workflows/ci.yml"
+          },
+          {
+            "type": "container_or_compose",
+            "file": "Dockerfile"
+          }
+        ]
+      }
+    },
+    {
+      "name": "remix_fixture",
+      "repo_path": "./tests/fixtures/remix_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /api/health",
+          "GET /api/orders/{id}",
+          "POST /api/orders/{id}"
+        ],
+        "dependencies": [
+          "@remix-run/node"
+        ]
+      }
+    },
+    {
+      "name": "nextjs_pages_api_fixture",
+      "repo_path": "./tests/fixtures/nextjs_pages_api_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /health",
+          "GET /orders/{id}",
+          "POST /orders/{id}"
+        ],
+        "dependencies": [
+          "next"
+        ]
+      }
+    },
+    {
+      "name": "nuxt_nitro_fixture",
+      "repo_path": "./tests/fixtures/nuxt_nitro_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /api/health",
+          "POST /api/orders/{id}",
+          "GET /status"
+        ],
+        "dependencies": [
+          "nuxt"
+        ]
+      }
+    },
+    {
+      "name": "hono_fixture",
+      "repo_path": "./tests/fixtures/hono_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /api/users"
+        ],
+        "dependencies": [
+          "hono"
+        ]
+      }
+    },
+    {
+      "name": "koa_fixture",
+      "repo_path": "./tests/fixtures/koa_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /api/v1/users"
+        ],
+        "dependencies": [
+          "@koa/router"
+        ]
+      }
+    },
+    {
+      "name": "fastify_fixture",
+      "repo_path": "./tests/fixtures/fastify_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /jobs",
+          "POST /jobs"
+        ],
+        "dependencies": [
+          "fastify"
+        ]
+      }
+    },
+    {
+      "name": "fastapi_router_fixture",
+      "repo_path": "./tests/fixtures/fastapi_router_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /v1/api/health",
+          "POST /v1/api/orders"
+        ],
+        "dependencies": [
+          "fastapi"
+        ]
+      }
+    },
+    {
+      "name": "flask_blueprint_fixture",
+      "repo_path": "./tests/fixtures/flask_blueprint_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /v1/api/health",
+          "POST /v1/api/orders"
+        ],
+        "dependencies": [
+          "flask"
+        ]
+      }
+    },
+    {
+      "name": "flask_imported_blueprint_fixture",
+      "repo_path": "./tests/fixtures/flask_imported_blueprint_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /v1/api/health"
+        ],
+        "dependencies": [
+          "flask"
+        ],
+        "framework_signals": [
+          {
+            "name": "flask",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "flask_imported_blueprint_noise_fixture",
+      "repo_path": "./tests/fixtures/flask_imported_blueprint_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /v1/api/health"
+        ],
+        "dependencies": [
+          "flask"
+        ],
+        "framework_signals": [
+          {
+            "name": "flask",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "flask_imported_blueprint_handler_fixture",
+      "repo_path": "./tests/fixtures/flask_imported_blueprint_handler_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /v1/api/health"
+        ],
+        "dependencies": [
+          "flask"
+        ],
+        "framework_signals": [
+          {
+            "name": "flask",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "flask_imported_blueprint_handler_noise_fixture",
+      "repo_path": "./tests/fixtures/flask_imported_blueprint_handler_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /v1/api/health"
+        ],
+        "dependencies": [
+          "flask"
+        ],
+        "framework_signals": [
+          {
+            "name": "flask",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "js_route_constants_fixture",
+      "repo_path": "./tests/fixtures/js_route_constants_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /api/health",
+          "GET /api/orders/:id",
+          "DELETE /api/orders/:id"
+        ],
+        "dependencies": [
+          "express"
+        ]
+      }
+    },
+    {
+      "name": "js_comment_noise_fixture",
+      "repo_path": "./tests/fixtures/js_comment_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [],
+        "dependencies": [
+          "typescript"
+        ]
+      }
+    },
+    {
+      "name": "python_docstring_noise_fixture",
+      "repo_path": "./tests/fixtures/python_docstring_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /health"
+        ],
+        "dependencies": [
+          "fastapi"
+        ]
+      }
+    },
+    {
+      "name": "websocket_fixture",
+      "repo_path": "./tests/fixtures/websocket_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "websocket:GET /notifications",
+          "websocket:GET /ws"
+        ],
+        "dependencies": [
+          "fastapi",
+          "ws"
+        ]
+      }
+    },
+    {
+      "name": "fastapi_websocket_router_fixture",
+      "repo_path": "./tests/fixtures/fastapi_websocket_router_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "websocket:GET /v1/ws/events"
+        ],
+        "dependencies": [
+          "fastapi"
+        ],
+        "framework_signals": [
+          {
+            "name": "fastapi",
+            "type": "backend"
+          },
+          {
+            "name": "websocket",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "fastapi_imported_router_fixture",
+      "repo_path": "./tests/fixtures/fastapi_imported_router_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /v1/api/health",
+          "websocket:GET /v1/api/events"
+        ],
+        "dependencies": [
+          "fastapi"
+        ],
+        "framework_signals": [
+          {
+            "name": "fastapi",
+            "type": "backend"
+          },
+          {
+            "name": "websocket",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "fastapi_imported_nested_router_fixture",
+      "repo_path": "./tests/fixtures/fastapi_imported_nested_router_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /v1/api/nested/health",
+          "websocket:GET /v1/api/nested/events"
+        ],
+        "dependencies": [
+          "fastapi"
+        ],
+        "framework_signals": [
+          {
+            "name": "fastapi",
+            "type": "backend"
+          },
+          {
+            "name": "websocket",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "fastapi_route_registration_fixture",
+      "repo_path": "./tests/fixtures/fastapi_route_registration_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /status",
+          "GET /v1/api/health",
+          "POST /v1/api/orders"
+        ],
+        "dependencies": [
+          "fastapi"
+        ],
+        "framework_signals": [
+          {
+            "name": "fastapi",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "fastapi_route_registration_noise_fixture",
+      "repo_path": "./tests/fixtures/fastapi_route_registration_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /status",
+          "GET /v1/api/health",
+          "POST /v1/api/orders"
+        ],
+        "dependencies": [
+          "fastapi"
+        ],
+        "framework_signals": [
+          {
+            "name": "fastapi",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "fastapi_imported_route_registration_fixture",
+      "repo_path": "./tests/fixtures/fastapi_imported_route_registration_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /status",
+          "GET /v1/api/health",
+          "POST /v1/api/orders",
+          "websocket:GET /v1/api/events"
+        ],
+        "dependencies": [
+          "fastapi"
+        ],
+        "framework_signals": [
+          {
+            "name": "fastapi",
+            "type": "backend"
+          },
+          {
+            "name": "websocket",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "fastapi_imported_route_registration_noise_fixture",
+      "repo_path": "./tests/fixtures/fastapi_imported_route_registration_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /status",
+          "GET /v1/api/health",
+          "websocket:GET /v1/api/events"
+        ],
+        "dependencies": [
+          "fastapi"
+        ],
+        "framework_signals": [
+          {
+            "name": "fastapi",
+            "type": "backend"
+          },
+          {
+            "name": "websocket",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "fastapi_imported_router_call_handler_fixture",
+      "repo_path": "./tests/fixtures/fastapi_imported_router_call_handler_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /v1/api/health"
+        ],
+        "dependencies": [
+          "fastapi"
+        ],
+        "framework_signals": [
+          {
+            "name": "fastapi",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "fastapi_imported_router_call_handler_noise_fixture",
+      "repo_path": "./tests/fixtures/fastapi_imported_router_call_handler_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /v1/api/health"
+        ],
+        "dependencies": [
+          "fastapi"
+        ],
+        "framework_signals": [
+          {
+            "name": "fastapi",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "fastapi_api_route_decorator_fixture",
+      "repo_path": "./tests/fixtures/fastapi_api_route_decorator_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /status",
+          "GET /v1/api/health",
+          "HEAD /v1/api/health"
+        ],
+        "dependencies": [
+          "fastapi"
+        ],
+        "framework_signals": [
+          {
+            "name": "fastapi",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "fastapi_api_route_decorator_noise_fixture",
+      "repo_path": "./tests/fixtures/fastapi_api_route_decorator_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /status",
+          "GET /v1/api/health",
+          "HEAD /v1/api/health"
+        ],
+        "dependencies": [
+          "fastapi"
+        ],
+        "framework_signals": [
+          {
+            "name": "fastapi",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "fastapi_websocket_router_noise_fixture",
+      "repo_path": "./tests/fixtures/fastapi_websocket_router_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "websocket:GET /v1/ws/events"
+        ],
+        "dependencies": [
+          "fastapi"
+        ],
+        "framework_signals": [
+          {
+            "name": "fastapi",
+            "type": "backend"
+          },
+          {
+            "name": "websocket",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "fastapi_imported_router_noise_fixture",
+      "repo_path": "./tests/fixtures/fastapi_imported_router_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /v1/api/health",
+          "websocket:GET /v1/api/events"
+        ],
+        "dependencies": [
+          "fastapi"
+        ],
+        "framework_signals": [
+          {
+            "name": "fastapi",
+            "type": "backend"
+          },
+          {
+            "name": "websocket",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "fastapi_imported_nested_router_noise_fixture",
+      "repo_path": "./tests/fixtures/fastapi_imported_nested_router_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /v1/api/nested/health",
+          "websocket:GET /v1/api/nested/events"
+        ],
+        "dependencies": [
+          "fastapi"
+        ],
+        "framework_signals": [
+          {
+            "name": "fastapi",
+            "type": "backend"
+          },
+          {
+            "name": "websocket",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "fastapi_websocket_route_decorator_fixture",
+      "repo_path": "./tests/fixtures/fastapi_websocket_route_decorator_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "websocket:GET /live",
+          "websocket:GET /v1/ws/events"
+        ],
+        "dependencies": [
+          "fastapi"
+        ],
+        "framework_signals": [
+          {
+            "name": "fastapi",
+            "type": "backend"
+          },
+          {
+            "name": "websocket",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "fastapi_websocket_route_decorator_noise_fixture",
+      "repo_path": "./tests/fixtures/fastapi_websocket_route_decorator_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "websocket:GET /live",
+          "websocket:GET /v1/ws/events"
+        ],
+        "dependencies": [
+          "fastapi"
+        ],
+        "framework_signals": [
+          {
+            "name": "fastapi",
+            "type": "backend"
+          },
+          {
+            "name": "websocket",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "starlette_routing_fixture",
+      "repo_path": "./tests/fixtures/starlette_routing_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /health",
+          "websocket:GET /v1/events"
+        ],
+        "dependencies": [
+          "starlette"
+        ],
+        "framework_signals": [
+          {
+            "name": "starlette",
+            "type": "backend"
+          },
+          {
+            "name": "websocket",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "starlette_routing_noise_fixture",
+      "repo_path": "./tests/fixtures/starlette_routing_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /health",
+          "websocket:GET /v1/events"
+        ],
+        "dependencies": [
+          "starlette"
+        ],
+        "framework_signals": [
+          {
+            "name": "starlette",
+            "type": "backend"
+          },
+          {
+            "name": "websocket",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "starlette_imported_routing_fixture",
+      "repo_path": "./tests/fixtures/starlette_imported_routing_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /health",
+          "websocket:GET /v1/events"
+        ],
+        "dependencies": [
+          "starlette"
+        ],
+        "framework_signals": [
+          {
+            "name": "starlette",
+            "type": "backend"
+          },
+          {
+            "name": "websocket",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "starlette_imported_routing_noise_fixture",
+      "repo_path": "./tests/fixtures/starlette_imported_routing_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /health",
+          "websocket:GET /v1/events"
+        ],
+        "dependencies": [
+          "starlette"
+        ],
+        "framework_signals": [
+          {
+            "name": "starlette",
+            "type": "backend"
+          },
+          {
+            "name": "websocket",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "starlette_imported_mount_routes_fixture",
+      "repo_path": "./tests/fixtures/starlette_imported_mount_routes_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /api/health",
+          "websocket:GET /api/ws/events"
+        ],
+        "dependencies": [
+          "starlette"
+        ],
+        "framework_signals": [
+          {
+            "name": "starlette",
+            "type": "backend"
+          },
+          {
+            "name": "websocket",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "starlette_imported_mount_routes_noise_fixture",
+      "repo_path": "./tests/fixtures/starlette_imported_mount_routes_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /api/health",
+          "websocket:GET /api/ws/events"
+        ],
+        "dependencies": [
+          "starlette"
+        ],
+        "framework_signals": [
+          {
+            "name": "starlette",
+            "type": "backend"
+          },
+          {
+            "name": "websocket",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "starlette_imported_mount_app_fixture",
+      "repo_path": "./tests/fixtures/starlette_imported_mount_app_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /api/health",
+          "websocket:GET /api/events"
+        ],
+        "dependencies": [
+          "starlette"
+        ],
+        "framework_signals": [
+          {
+            "name": "starlette",
+            "type": "backend"
+          },
+          {
+            "name": "websocket",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "starlette_imported_mount_app_noise_fixture",
+      "repo_path": "./tests/fixtures/starlette_imported_mount_app_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /api/health",
+          "websocket:GET /api/events"
+        ],
+        "dependencies": [
+          "starlette"
+        ],
+        "framework_signals": [
+          {
+            "name": "starlette",
+            "type": "backend"
+          },
+          {
+            "name": "websocket",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "starlette_imported_mount_handler_fixture",
+      "repo_path": "./tests/fixtures/starlette_imported_mount_handler_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /api/health",
+          "websocket:GET /api/events"
+        ],
+        "dependencies": [
+          "starlette"
+        ],
+        "framework_signals": [
+          {
+            "name": "starlette",
+            "type": "backend"
+          },
+          {
+            "name": "websocket",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "starlette_imported_mount_handler_noise_fixture",
+      "repo_path": "./tests/fixtures/starlette_imported_mount_handler_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /api/health",
+          "websocket:GET /api/events"
+        ],
+        "dependencies": [
+          "starlette"
+        ],
+        "framework_signals": [
+          {
+            "name": "starlette",
+            "type": "backend"
+          },
+          {
+            "name": "websocket",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "fastapi_websocket_registration_fixture",
+      "repo_path": "./tests/fixtures/fastapi_websocket_registration_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "websocket:GET /v1/ws/events"
+        ],
+        "dependencies": [
+          "fastapi"
+        ],
+        "framework_signals": [
+          {
+            "name": "fastapi",
+            "type": "backend"
+          },
+          {
+            "name": "websocket",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "fastapi_websocket_registration_noise_fixture",
+      "repo_path": "./tests/fixtures/fastapi_websocket_registration_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "websocket:GET /v1/ws/events"
+        ],
+        "dependencies": [
+          "fastapi"
+        ],
+        "framework_signals": [
+          {
+            "name": "fastapi",
+            "type": "backend"
+          },
+          {
+            "name": "websocket",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "fastapi_background_task_fixture",
+      "repo_path": "./tests/fixtures/fastapi_background_task_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          {
+            "kind": "conventional_entry_file",
+            "file": "src/app.py"
+          },
+          {
+            "kind": "fastapi_background_task",
+            "name": "send_notification",
+            "file": "src/app.py"
+          }
+        ],
+        "dependencies": [
+          "fastapi"
+        ],
+        "framework_signals": [
+          {
+            "name": "fastapi",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "fastapi_background_task_noise_fixture",
+      "repo_path": "./tests/fixtures/fastapi_background_task_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          {
+            "kind": "conventional_entry_file",
+            "file": "src/app.py"
+          },
+          {
+            "kind": "fastapi_background_task",
+            "name": "send_notification",
+            "file": "src/app.py"
+          }
+        ],
+        "dependencies": [
+          "fastapi"
+        ],
+        "framework_signals": [
+          {
+            "name": "fastapi",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "mixed_fastapi_background_task_flow_fixture",
+      "repo_path": "./tests/fixtures/mixed_fastapi_background_task_flow_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "cross_file_event_edges": [
+          "fastapi_background_task::send_notification::src/app.py::src/tasks.py"
+        ],
+        "dependencies": [
+          "fastapi"
+        ],
+        "framework_signals": [
+          {
+            "name": "fastapi",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "mixed_fastapi_background_task_flow_noise_fixture",
+      "repo_path": "./tests/fixtures/mixed_fastapi_background_task_flow_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "cross_file_event_edges": [
+          "fastapi_background_task::send_notification::src/app.py::src/tasks.py"
+        ],
+        "dependencies": [
+          "fastapi"
+        ],
+        "framework_signals": [
+          {
+            "name": "fastapi",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "mixed_fastapi_background_task_module_alias_flow_fixture",
+      "repo_path": "./tests/fixtures/mixed_fastapi_background_task_module_alias_flow_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "cross_file_event_edges": [
+          "fastapi_background_task::audit_notification::src/app.py::src/tasks.py",
+          "fastapi_background_task::enqueue_notification::src/app.py::src/tasks.py"
+        ],
+        "dependencies": [
+          "fastapi"
+        ],
+        "framework_signals": [
+          {
+            "name": "fastapi",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "mixed_fastapi_background_task_module_alias_flow_noise_fixture",
+      "repo_path": "./tests/fixtures/mixed_fastapi_background_task_module_alias_flow_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "cross_file_event_edges": [
+          "fastapi_background_task::audit_notification::src/app.py::src/tasks.py",
+          "fastapi_background_task::enqueue_notification::src/app.py::src/tasks.py"
+        ],
+        "dependencies": [
+          "fastapi"
+        ],
+        "framework_signals": [
+          {
+            "name": "fastapi",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "signalr_hub_fixture",
+      "repo_path": "./tests/fixtures/signalr_hub_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "websocket:GET /hubs/chat"
+        ],
+        "dependencies": [
+          "Microsoft.AspNetCore.SignalR"
+        ],
+        "framework_signals": [
+          {
+            "name": "signalr",
+            "type": "backend"
+          },
+          {
+            "name": "websocket",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "signalr_hub_noise_fixture",
+      "repo_path": "./tests/fixtures/signalr_hub_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [],
+        "dependencies": [
+          "Microsoft.AspNetCore.SignalR"
+        ],
+        "framework_signals": [
+          {
+            "name": "signalr",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "csharp_grpc_fixture",
+      "repo_path": "./tests/fixtures/csharp_grpc_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "grpc:POST /Greeter/SayHello",
+          "grpc:POST /Greeter/SayGoodbye"
+        ],
+        "dependencies": [
+          "Grpc.AspNetCore"
+        ],
+        "framework_signals": [
+          "grpc::backend"
+        ]
+      }
+    },
+    {
+      "name": "csharp_grpc_noise_fixture",
+      "repo_path": "./tests/fixtures/csharp_grpc_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [],
+        "dependencies": [
+          "Grpc.AspNetCore"
+        ],
+        "framework_signals": [
+          "grpc::backend"
+        ]
+      }
+    },
+    {
+      "name": "worker_entrypoint_fixture",
+      "repo_path": "./tests/fixtures/worker_entrypoint_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          "python_main_guard::src/service.py",
+          "python_main_guard::src/worker.py"
+        ],
+        "dependencies": [
+          "celery"
+        ]
+      }
+    },
+    {
+      "name": "celery_task_fixture",
+      "repo_path": "./tests/fixtures/celery_task_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          {
+            "kind": "celery_task",
+            "name": "inventory.refresh",
+            "file": "src/tasks.py"
+          },
+          {
+            "kind": "celery_task",
+            "name": "orders.sync",
+            "file": "src/tasks.py"
+          }
+        ],
+        "dependencies": [
+          "celery"
+        ]
+      }
+    },
+    {
+      "name": "celery_task_noise_fixture",
+      "repo_path": "./tests/fixtures/celery_task_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [],
+        "dependencies": [
+          "celery"
+        ]
+      }
+    },
+    {
+      "name": "celery_producer_fixture",
+      "repo_path": "./tests/fixtures/celery_producer_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          {
+            "kind": "celery_producer",
+            "name": "inventory.refresh",
+            "file": "src/dispatch.py"
+          },
+          {
+            "kind": "celery_producer",
+            "name": "orders.sync",
+            "file": "src/dispatch.py"
+          }
+        ],
+        "dependencies": [
+          "celery"
+        ],
+        "framework_signals": [
+          "celery::backend"
+        ]
+      }
+    },
+    {
+      "name": "celery_producer_noise_fixture",
+      "repo_path": "./tests/fixtures/celery_producer_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [],
+        "dependencies": [
+          "celery"
+        ],
+        "framework_signals": [
+          "celery::backend"
+        ]
+      }
+    },
+    {
+      "name": "airflow_dag_fixture",
+      "repo_path": "./tests/fixtures/airflow_dag_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          {
+            "kind": "airflow_dag",
+            "name": "nightly_sync",
+            "file": "dags/nightly_sync.py"
+          },
+          {
+            "kind": "airflow_task",
+            "name": "start",
+            "file": "dags/nightly_sync.py"
+          }
+        ],
+        "dependencies": [
+          "apache-airflow"
+        ],
+        "framework_signals": [
+          {
+            "name": "airflow",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "airflow_dag_noise_fixture",
+      "repo_path": "./tests/fixtures/airflow_dag_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [],
+        "dependencies": [
+          "apache-airflow"
+        ],
+        "framework_signals": [
+          {
+            "name": "airflow",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "airflow_task_fixture",
+      "repo_path": "./tests/fixtures/airflow_task_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          {
+            "kind": "airflow_dag",
+            "name": "nightly_tasks",
+            "file": "dags/tasks.py"
+          },
+          {
+            "kind": "airflow_task",
+            "name": "refresh_metrics",
+            "file": "dags/tasks.py"
+          },
+          {
+            "kind": "airflow_task",
+            "name": "sync_reports",
+            "file": "dags/tasks.py"
+          }
+        ],
+        "dependencies": [
+          "apache-airflow"
+        ],
+        "framework_signals": [
+          {
+            "name": "airflow",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "airflow_task_noise_fixture",
+      "repo_path": "./tests/fixtures/airflow_task_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [],
+        "dependencies": [
+          "apache-airflow"
+        ],
+        "framework_signals": [
+          {
+            "name": "airflow",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "airflow_decorator_dag_fixture",
+      "repo_path": "./tests/fixtures/airflow_decorator_dag_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          {
+            "kind": "airflow_dag",
+            "name": "reports.rollup",
+            "file": "dags/pipeline.py"
+          }
+        ],
+        "dependencies": [
+          "apache-airflow"
+        ],
+        "framework_signals": [
+          {
+            "name": "airflow",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "airflow_decorator_dag_noise_fixture",
+      "repo_path": "./tests/fixtures/airflow_decorator_dag_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [],
+        "dependencies": [
+          "apache-airflow"
+        ],
+        "framework_signals": [
+          {
+            "name": "airflow",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "bullmq_worker_fixture",
+      "repo_path": "./tests/fixtures/bullmq_worker_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          {
+            "kind": "bullmq_worker",
+            "name": "email-delivery",
+            "file": "src/worker.ts"
+          }
+        ],
+        "dependencies": [
+          "bullmq"
+        ],
+        "framework_signals": [
+          {
+            "name": "bullmq",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "bullmq_worker_noise_fixture",
+      "repo_path": "./tests/fixtures/bullmq_worker_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [],
+        "dependencies": [
+          "bullmq"
+        ],
+        "framework_signals": [
+          {
+            "name": "bullmq",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "bullmq_producer_fixture",
+      "repo_path": "./tests/fixtures/bullmq_producer_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          {
+            "kind": "bullmq_producer",
+            "name": "email-delivery",
+            "file": "src/producer.ts"
+          }
+        ],
+        "dependencies": [
+          "bullmq"
+        ],
+        "framework_signals": [
+          {
+            "name": "bullmq",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "bullmq_producer_noise_fixture",
+      "repo_path": "./tests/fixtures/bullmq_producer_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [],
+        "dependencies": [
+          "bullmq"
+        ],
+        "framework_signals": [
+          {
+            "name": "bullmq",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "bullmq_flow_producer_fixture",
+      "repo_path": "./tests/fixtures/bullmq_flow_producer_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          {
+            "kind": "bullmq_producer",
+            "name": "email-delivery",
+            "file": "src/producer.ts"
+          },
+          {
+            "kind": "bullmq_producer",
+            "name": "audit-jobs",
+            "file": "src/producer.ts"
+          }
+        ],
+        "dependencies": [
+          "bullmq"
+        ],
+        "framework_signals": [
+          {
+            "name": "bullmq",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "bullmq_flow_producer_noise_fixture",
+      "repo_path": "./tests/fixtures/bullmq_flow_producer_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [],
+        "dependencies": [
+          "bullmq"
+        ],
+        "framework_signals": [
+          {
+            "name": "bullmq",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "bullmq_flow_producer_bulk_fixture",
+      "repo_path": "./tests/fixtures/bullmq_flow_producer_bulk_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          {
+            "kind": "bullmq_producer",
+            "name": "email-delivery",
+            "file": "src/producer.ts"
+          },
+          {
+            "kind": "bullmq_producer",
+            "name": "audit-jobs",
+            "file": "src/producer.ts"
+          }
+        ],
+        "dependencies": [
+          "bullmq"
+        ],
+        "framework_signals": [
+          {
+            "name": "bullmq",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "bullmq_flow_producer_bulk_noise_fixture",
+      "repo_path": "./tests/fixtures/bullmq_flow_producer_bulk_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [],
+        "dependencies": [
+          "bullmq"
+        ],
+        "framework_signals": [
+          {
+            "name": "bullmq",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "bullmq_repeatable_fixture",
+      "repo_path": "./tests/fixtures/bullmq_repeatable_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          {
+            "kind": "bullmq_repeatable_job",
+            "name": "sync-digest",
+            "file": "src/scheduler.ts"
+          }
+        ],
+        "dependencies": [
+          "bullmq"
+        ],
+        "framework_signals": [
+          {
+            "name": "bullmq",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "bullmq_job_scheduler_fixture",
+      "repo_path": "./tests/fixtures/bullmq_job_scheduler_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          {
+            "kind": "bullmq_repeatable_job",
+            "name": "sync-digest",
+            "file": "src/scheduler.ts"
+          }
+        ],
+        "dependencies": [
+          "bullmq"
+        ],
+        "framework_signals": [
+          {
+            "name": "bullmq",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "bullmq_job_scheduler_noise_fixture",
+      "repo_path": "./tests/fixtures/bullmq_job_scheduler_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [],
+        "dependencies": [
+          "bullmq"
+        ],
+        "framework_signals": [
+          {
+            "name": "bullmq",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "mixed_bullmq_flow_fixture",
+      "repo_path": "./tests/fixtures/mixed_bullmq_flow_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          {
+            "kind": "bullmq_worker",
+            "name": "email-delivery",
+            "file": "src/worker.ts"
+          },
+          {
+            "kind": "bullmq_producer",
+            "name": "email-delivery",
+            "file": "src/producer.ts"
+          }
+        ],
+        "cross_file_event_edges": [
+          "bullmq::email-delivery::src/producer.ts::src/worker.ts"
+        ],
+        "dependencies": [
+          "bullmq"
+        ],
+        "framework_signals": [
+          {
+            "name": "bullmq",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "mixed_bullmq_flow_producer_flow_fixture",
+      "repo_path": "./tests/fixtures/mixed_bullmq_flow_producer_flow_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          {
+            "kind": "bullmq_worker",
+            "name": "email-delivery",
+            "file": "src/email_worker.ts"
+          },
+          {
+            "kind": "bullmq_worker",
+            "name": "audit-jobs",
+            "file": "src/audit_worker.ts"
+          },
+          {
+            "kind": "bullmq_producer",
+            "name": "email-delivery",
+            "file": "src/producer.ts"
+          },
+          {
+            "kind": "bullmq_producer",
+            "name": "audit-jobs",
+            "file": "src/producer.ts"
+          }
+        ],
+        "cross_file_event_edges": [
+          "bullmq::email-delivery::src/producer.ts::src/email_worker.ts",
+          "bullmq::audit-jobs::src/producer.ts::src/audit_worker.ts"
+        ],
+        "dependencies": [
+          "bullmq"
+        ],
+        "framework_signals": [
+          {
+            "name": "bullmq",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "mixed_bullmq_flow_producer_bulk_flow_fixture",
+      "repo_path": "./tests/fixtures/mixed_bullmq_flow_producer_bulk_flow_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          {
+            "kind": "bullmq_worker",
+            "name": "email-delivery",
+            "file": "src/email_worker.ts"
+          },
+          {
+            "kind": "bullmq_worker",
+            "name": "audit-jobs",
+            "file": "src/audit_worker.ts"
+          },
+          {
+            "kind": "bullmq_producer",
+            "name": "email-delivery",
+            "file": "src/producer.ts"
+          },
+          {
+            "kind": "bullmq_producer",
+            "name": "audit-jobs",
+            "file": "src/producer.ts"
+          }
+        ],
+        "cross_file_event_edges": [
+          "bullmq::email-delivery::src/producer.ts::src/email_worker.ts",
+          "bullmq::audit-jobs::src/producer.ts::src/audit_worker.ts"
+        ],
+        "dependencies": [
+          "bullmq"
+        ],
+        "framework_signals": [
+          {
+            "name": "bullmq",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "mixed_bullmq_scheduler_flow_fixture",
+      "repo_path": "./tests/fixtures/mixed_bullmq_scheduler_flow_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          {
+            "kind": "bullmq_worker",
+            "name": "email-delivery",
+            "file": "src/worker.ts"
+          },
+          {
+            "kind": "bullmq_repeatable_job",
+            "name": "sync-digest",
+            "file": "src/scheduler.ts"
+          }
+        ],
+        "cross_file_event_edges": [
+          "bullmq::email-delivery::src/scheduler.ts::src/worker.ts"
+        ],
+        "dependencies": [
+          "bullmq"
+        ],
+        "framework_signals": [
+          {
+            "name": "bullmq",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "dagster_job_fixture",
+      "repo_path": "./tests/fixtures/dagster_job_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          {
+            "kind": "dagster_job",
+            "name": "nightly_assets",
+            "file": "src/pipeline.py"
+          },
+          {
+            "kind": "dagster_schedule",
+            "name": "nightly_assets_schedule",
+            "file": "src/pipeline.py"
+          }
+        ],
+        "dependencies": [
+          "dagster"
+        ],
+        "framework_signals": [
+          {
+            "name": "dagster",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "dagster_job_noise_fixture",
+      "repo_path": "./tests/fixtures/dagster_job_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [],
+        "dependencies": [
+          "dagster"
+        ],
+        "framework_signals": [
+          {
+            "name": "dagster",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "dagster_asset_sensor_fixture",
+      "repo_path": "./tests/fixtures/dagster_asset_sensor_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          {
+            "kind": "dagster_asset",
+            "name": "warehouse_orders",
+            "file": "src/pipeline.py"
+          },
+          {
+            "kind": "dagster_sensor",
+            "name": "orders_sensor",
+            "file": "src/pipeline.py"
+          }
+        ],
+        "dependencies": [
+          "dagster"
+        ],
+        "framework_signals": [
+          {
+            "name": "dagster",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "dagster_asset_sensor_noise_fixture",
+      "repo_path": "./tests/fixtures/dagster_asset_sensor_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [],
+        "dependencies": [
+          "dagster"
+        ],
+        "framework_signals": [
+          {
+            "name": "dagster",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "dagster_repository_fixture",
+      "repo_path": "./tests/fixtures/dagster_repository_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          {
+            "kind": "dagster_repository",
+            "name": "legacy_repo",
+            "file": "src/pipeline.py"
+          },
+          {
+            "kind": "dagster_repository",
+            "name": "defs",
+            "file": "src/pipeline.py"
+          }
+        ],
+        "dependencies": [
+          "dagster"
+        ],
+        "framework_signals": [
+          {
+            "name": "dagster",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "dagster_repository_noise_fixture",
+      "repo_path": "./tests/fixtures/dagster_repository_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [],
+        "dependencies": [
+          "dagster"
+        ],
+        "framework_signals": [
+          {
+            "name": "dagster",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "csharp_hosted_service_fixture",
+      "repo_path": "./tests/fixtures/csharp_hosted_service_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          {
+            "kind": "csharp_hosted_service",
+            "name": "EmailWorker",
+            "file": "src/EmailWorker.cs"
+          }
+        ],
+        "dependencies": [
+          "Microsoft.Extensions.Hosting"
+        ]
+      }
+    },
+    {
+      "name": "csharp_hosted_service_noise_fixture",
+      "repo_path": "./tests/fixtures/csharp_hosted_service_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [],
+        "dependencies": [
+          "Microsoft.Extensions.Hosting"
+        ]
+      }
+    },
+    {
+      "name": "sidekiq_worker_fixture",
+      "repo_path": "./tests/fixtures/sidekiq_worker_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          {
+            "kind": "sidekiq_worker",
+            "name": "Workers::ReportWorker",
+            "file": "app/workers/report_worker.rb"
+          }
+        ],
+        "dependencies": [
+          "sidekiq"
+        ],
+        "framework_signals": [
+          {
+            "name": "sidekiq",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "sidekiq_worker_noise_fixture",
+      "repo_path": "./tests/fixtures/sidekiq_worker_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [],
+        "dependencies": [
+          "sidekiq"
+        ],
+        "framework_signals": [
+          {
+            "name": "sidekiq",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "sidekiq_producer_fixture",
+      "repo_path": "./tests/fixtures/sidekiq_producer_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          "sidekiq_producer::Workers::ReportWorker::app/services/report_dispatcher.rb"
+        ],
+        "dependencies": [
+          "sidekiq"
+        ],
+        "framework_signals": [
+          {
+            "name": "sidekiq",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "sidekiq_producer_noise_fixture",
+      "repo_path": "./tests/fixtures/sidekiq_producer_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [],
+        "dependencies": [
+          "sidekiq"
+        ],
+        "framework_signals": [
+          {
+            "name": "sidekiq",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "hangfire_recurring_job_fixture",
+      "repo_path": "./tests/fixtures/hangfire_recurring_job_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          {
+            "kind": "hangfire_recurring_job",
+            "name": "nightly-cleanup",
+            "file": "src/Program.cs"
+          }
+        ],
+        "dependencies": [
+          "Hangfire.Core"
+        ],
+        "framework_signals": [
+          {
+            "name": "hangfire",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "hangfire_recurring_job_noise_fixture",
+      "repo_path": "./tests/fixtures/hangfire_recurring_job_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [],
+        "dependencies": [
+          "Hangfire.Core"
+        ],
+        "framework_signals": [
+          {
+            "name": "hangfire",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "quartz_scheduled_job_fixture",
+      "repo_path": "./tests/fixtures/quartz_scheduled_job_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          {
+            "kind": "quartz_scheduled_job",
+            "name": "nightly-sync",
+            "file": "src/Program.cs"
+          }
+        ],
+        "dependencies": [
+          "Quartz.Extensions.Hosting"
+        ],
+        "framework_signals": [
+          {
+            "name": "quartz",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "quartz_scheduled_job_noise_fixture",
+      "repo_path": "./tests/fixtures/quartz_scheduled_job_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [],
+        "dependencies": [
+          "Quartz.Extensions.Hosting"
+        ],
+        "framework_signals": [
+          {
+            "name": "quartz",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "masstransit_consumer_fixture",
+      "repo_path": "./tests/fixtures/masstransit_consumer_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          "masstransit_consumer::OrderSubmittedConsumer::src/Consumers.cs"
+        ],
+        "dependencies": [
+          "MassTransit"
+        ],
+        "framework_signals": [
+          "masstransit::backend"
+        ]
+      }
+    },
+    {
+      "name": "masstransit_consumer_noise_fixture",
+      "repo_path": "./tests/fixtures/masstransit_consumer_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [],
+        "dependencies": [
+          "MassTransit"
+        ],
+        "framework_signals": [
+          "masstransit::backend"
+        ]
+      }
+    },
+    {
+      "name": "masstransit_producer_fixture",
+      "repo_path": "./tests/fixtures/masstransit_producer_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          "masstransit_producer::OrderSubmitted::src/Publisher.cs"
+        ],
+        "dependencies": [
+          "MassTransit"
+        ],
+        "framework_signals": [
+          "masstransit::backend"
+        ]
+      }
+    },
+    {
+      "name": "masstransit_producer_noise_fixture",
+      "repo_path": "./tests/fixtures/masstransit_producer_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [],
+        "dependencies": [
+          "MassTransit"
+        ],
+        "framework_signals": [
+          "masstransit::backend"
+        ]
+      }
+    },
+    {
+      "name": "spring_scheduled_job_fixture",
+      "repo_path": "./tests/fixtures/spring_scheduled_job_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          {
+            "kind": "spring_scheduled_job",
+            "name": "rebuildMetrics",
+            "file": "src/main/java/com/example/jobs/NightlyJobs.java"
+          }
+        ],
+        "framework_signals": [
+          {
+            "name": "spring",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "spring_scheduled_job_noise_fixture",
+      "repo_path": "./tests/fixtures/spring_scheduled_job_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [],
+        "framework_signals": [
+          {
+            "name": "spring",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "spring_batch_job_fixture",
+      "repo_path": "./tests/fixtures/spring_batch_job_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          "spring_batch_job::nightly-import::src/main/java/com/example/batch/BatchConfig.java",
+          "spring_batch_job::cleanup-run::src/main/java/com/example/batch/BatchConfig.java"
+        ],
+        "dependencies": [
+          "spring-batch-core"
+        ],
+        "framework_signals": [
+          "spring::backend",
+          "spring_batch::backend"
+        ]
+      }
+    },
+    {
+      "name": "spring_batch_job_noise_fixture",
+      "repo_path": "./tests/fixtures/spring_batch_job_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          "spring_batch_job::health-check::src/main/java/com/example/batch/Docs.java"
+        ],
+        "dependencies": [
+          "spring-batch-core"
+        ],
+        "framework_signals": [
+          "spring::backend",
+          "spring_batch::backend"
+        ]
+      }
+    },
+    {
+      "name": "spring_kafka_consumer_fixture",
+      "repo_path": "./tests/fixtures/spring_kafka_consumer_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          "kafka_consumer::reports.events::src/main/java/com/example/events/ReportListener.java"
+        ],
+        "dependencies": [
+          "spring-kafka"
+        ],
+        "framework_signals": [
+          "spring::backend",
+          "kafka::backend"
+        ]
+      }
+    },
+    {
+      "name": "spring_kafka_producer_fixture",
+      "repo_path": "./tests/fixtures/spring_kafka_producer_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          "kafka_producer::reports.events::src/main/java/com/example/events/ReportPublisher.java"
+        ],
+        "dependencies": [
+          "spring-kafka"
+        ],
+        "framework_signals": [
+          "spring::backend",
+          "kafka::backend"
+        ]
+      }
+    },
+    {
+      "name": "spring_kafka_noise_fixture",
+      "repo_path": "./tests/fixtures/spring_kafka_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [],
+        "dependencies": [
+          "spring-kafka"
+        ],
+        "framework_signals": [
+          "kafka::backend"
+        ]
+      }
+    },
+    {
+      "name": "spring_rabbitmq_consumer_fixture",
+      "repo_path": "./tests/fixtures/spring_rabbitmq_consumer_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          "rabbitmq_consumer::billing-events::src/main/java/com/example/events/BillingListener.java"
+        ],
+        "dependencies": [
+          "spring-rabbit"
+        ],
+        "framework_signals": [
+          "spring::backend",
+          "rabbitmq::backend"
+        ]
+      }
+    },
+    {
+      "name": "spring_rabbitmq_producer_fixture",
+      "repo_path": "./tests/fixtures/spring_rabbitmq_producer_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          "rabbitmq_producer::billing-events::src/main/java/com/example/events/BillingPublisher.java"
+        ],
+        "dependencies": [
+          "spring-rabbit"
+        ],
+        "framework_signals": [
+          "spring::backend",
+          "rabbitmq::backend"
+        ]
+      }
+    },
+    {
+      "name": "spring_rabbitmq_noise_fixture",
+      "repo_path": "./tests/fixtures/spring_rabbitmq_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [],
+        "dependencies": [
+          "spring-rabbit"
+        ],
+        "framework_signals": [
+          "rabbitmq::backend"
+        ]
+      }
+    },
+    {
+      "name": "go_cobra_command_fixture",
+      "repo_path": "./tests/fixtures/go_cobra_command_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          {
+            "kind": "cobra_command",
+            "name": "sync-reports",
+            "file": "cmd/sync.go"
+          }
+        ],
+        "dependencies": [
+          "github.com/spf13/cobra"
+        ],
+        "framework_signals": [
+          {
+            "name": "cobra",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "go_cobra_command_noise_fixture",
+      "repo_path": "./tests/fixtures/go_cobra_command_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [],
+        "dependencies": [
+          "github.com/spf13/cobra"
+        ],
+        "framework_signals": [
+          {
+            "name": "cobra",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "grpc_gateway_fixture",
+      "repo_path": "./tests/fixtures/grpc_gateway_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /v1/reports/{id}",
+          "POST /v1/reports"
+        ],
+        "dependencies": [
+          "github.com/grpc-ecosystem/grpc-gateway/v2"
+        ],
+        "framework_signals": [
+          "grpc::backend",
+          "grpc_gateway::backend"
+        ]
+      }
+    },
+    {
+      "name": "grpc_gateway_noise_fixture",
+      "repo_path": "./tests/fixtures/grpc_gateway_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [],
+        "dependencies": [
+          "github.com/grpc-ecosystem/grpc-gateway/v2"
+        ],
+        "framework_signals": [
+          "grpc::backend"
+        ]
+      }
+    },
+    {
+      "name": "goa_fixture",
+      "repo_path": "./tests/fixtures/goa_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /reports/{id}",
+          "POST /reports"
+        ],
+        "dependencies": [
+          "goa.design/goa/v3"
+        ],
+        "framework_signals": [
+          "goa::backend"
+        ]
+      }
+    },
+    {
+      "name": "goa_noise_fixture",
+      "repo_path": "./tests/fixtures/goa_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [],
+        "dependencies": [
+          "goa.design/goa/v3"
+        ],
+        "framework_signals": [
+          "goa::backend"
+        ]
+      }
+    },
+    {
+      "name": "fiber_route_fixture",
+      "repo_path": "./tests/fixtures/fiber_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /api/health",
+          "POST /api/admin/login"
+        ],
+        "dependencies": [
+          "github.com/gofiber/fiber/v2"
+        ],
+        "framework_signals": [
+          {
+            "name": "fiber",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "fiber_route_noise_fixture",
+      "repo_path": "./tests/fixtures/fiber_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [],
+        "dependencies": [
+          "github.com/gofiber/fiber/v2"
+        ],
+        "framework_signals": [
+          {
+            "name": "fiber",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "laravel_artisan_command_fixture",
+      "repo_path": "./tests/fixtures/laravel_artisan_command_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          {
+            "kind": "laravel_artisan_command",
+            "name": "reports:sync",
+            "file": "app/Console/Commands/SyncReports.php"
+          }
+        ],
+        "dependencies": [
+          "laravel"
+        ],
+        "framework_signals": [
+          {
+            "name": "laravel",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "laravel_artisan_command_noise_fixture",
+      "repo_path": "./tests/fixtures/laravel_artisan_command_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [],
+        "dependencies": [
+          "laravel"
+        ],
+        "framework_signals": [
+          {
+            "name": "laravel",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "symfony_console_command_fixture",
+      "repo_path": "./tests/fixtures/symfony_console_command_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          {
+            "kind": "symfony_console_command",
+            "name": "app:sync-reports",
+            "file": "src/Command/SyncReportsCommand.php"
+          }
+        ],
+        "dependencies": [
+          "symfony"
+        ],
+        "framework_signals": [
+          {
+            "name": "symfony",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "symfony_console_command_noise_fixture",
+      "repo_path": "./tests/fixtures/symfony_console_command_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [],
+        "dependencies": [
+          "symfony"
+        ],
+        "framework_signals": [
+          {
+            "name": "symfony",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "laravel_scheduler_fixture",
+      "repo_path": "./tests/fixtures/laravel_scheduler_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          {
+            "kind": "laravel_scheduled_command",
+            "name": "reports:sync",
+            "file": "app/Console/Kernel.php"
+          }
+        ],
+        "dependencies": [
+          "laravel"
+        ],
+        "framework_signals": [
+          {
+            "name": "laravel",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "laravel_scheduler_noise_fixture",
+      "repo_path": "./tests/fixtures/laravel_scheduler_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [],
+        "dependencies": [
+          "laravel"
+        ],
+        "framework_signals": [
+          {
+            "name": "laravel",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "graphql_fixture",
+      "repo_path": "./tests/fixtures/graphql_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          {
+            "protocol": "graphql",
+            "method": "POST",
+            "route": "/graphql",
+            "operation_type": "query",
+            "operation_name": "viewer"
+          },
+          {
+            "protocol": "graphql",
+            "method": "POST",
+            "route": "/graphql",
+            "operation_type": "mutation",
+            "operation_name": "updateUser"
+          },
+          {
+            "protocol": "graphql",
+            "method": "POST",
+            "route": "/graphql",
+            "operation_type": "subscription",
+            "operation_name": "onMessage"
+          }
+        ],
+        "dependencies": [
+          "graphql"
+        ]
+      }
+    },
+    {
+      "name": "graphql_description_noise_fixture",
+      "repo_path": "./tests/fixtures/graphql_description_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          {
+            "protocol": "graphql",
+            "method": "POST",
+            "route": "/graphql",
+            "operation_type": "query",
+            "operation_name": "viewer"
+          },
+          {
+            "protocol": "graphql",
+            "method": "POST",
+            "route": "/graphql",
+            "operation_type": "mutation",
+            "operation_name": "updateUser"
+          }
+        ],
+        "dependencies": [
+          "graphql"
+        ]
+      }
+    },
+    {
+      "name": "graphql_resolver_fixture",
+      "repo_path": "./tests/fixtures/graphql_resolver_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          {
+            "protocol": "graphql",
+            "method": "POST",
+            "route": "/graphql",
+            "operation_type": "query",
+            "operation_name": "viewer"
+          },
+          {
+            "protocol": "graphql",
+            "method": "POST",
+            "route": "/graphql",
+            "operation_type": "mutation",
+            "operation_name": "updateUser"
+          },
+          {
+            "protocol": "graphql",
+            "method": "POST",
+            "route": "/graphql",
+            "operation_type": "subscription",
+            "operation_name": "onMessage"
+          }
+        ],
+        "entrypoints": [
+          "graphql_resolver::viewer::src/user.resolver.ts",
+          "graphql_resolver::updateUser::src/user.resolver.ts",
+          "graphql_resolver::onMessage::src/user.resolver.ts"
+        ],
+        "dependencies": [
+          "@nestjs/graphql",
+          "graphql"
+        ]
+      }
+    },
+    {
+      "name": "graphql_resolver_noise_fixture",
+      "repo_path": "./tests/fixtures/graphql_resolver_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [],
+        "entrypoints": [],
+        "dependencies": [
+          "@nestjs/graphql",
+          "graphql"
+        ]
+      }
+    },
+    {
+      "name": "graphql_resolver_map_fixture",
+      "repo_path": "./tests/fixtures/graphql_resolver_map_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          {
+            "protocol": "graphql",
+            "method": "POST",
+            "route": "/graphql",
+            "operation_type": "query",
+            "operation_name": "viewer"
+          },
+          {
+            "protocol": "graphql",
+            "method": "POST",
+            "route": "/graphql",
+            "operation_type": "mutation",
+            "operation_name": "updateUser"
+          },
+          {
+            "protocol": "graphql",
+            "method": "POST",
+            "route": "/graphql",
+            "operation_type": "subscription",
+            "operation_name": "onMessage"
+          }
+        ],
+        "entrypoints": [
+          "graphql_resolver::viewer::src/resolvers.ts",
+          "graphql_resolver::updateUser::src/resolvers.ts",
+          "graphql_resolver::onMessage::src/resolvers.ts"
+        ],
+        "dependencies": [
+          "@apollo/server",
+          "graphql"
+        ]
+      }
+    },
+    {
+      "name": "graphql_resolver_map_noise_fixture",
+      "repo_path": "./tests/fixtures/graphql_resolver_map_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [],
+        "entrypoints": [],
+        "dependencies": [
+          "@apollo/server",
+          "graphql"
+        ]
+      }
+    },
+    {
+      "name": "graphql_resolver_map_variable_fixture",
+      "repo_path": "./tests/fixtures/graphql_resolver_map_variable_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          {
+            "protocol": "graphql",
+            "method": "POST",
+            "route": "/graphql",
+            "operation_type": "query",
+            "operation_name": "viewer"
+          },
+          {
+            "protocol": "graphql",
+            "method": "POST",
+            "route": "/graphql",
+            "operation_type": "mutation",
+            "operation_name": "updateUser"
+          },
+          {
+            "protocol": "graphql",
+            "method": "POST",
+            "route": "/graphql",
+            "operation_type": "subscription",
+            "operation_name": "onMessage"
+          }
+        ],
+        "entrypoints": [
+          "graphql_resolver::viewer::src/resolvers.ts",
+          "graphql_resolver::updateUser::src/resolvers.ts",
+          "graphql_resolver::onMessage::src/resolvers.ts"
+        ],
+        "dependencies": [
+          "@apollo/server",
+          "graphql"
+        ]
+      }
+    },
+    {
+      "name": "graphql_resolver_map_variable_noise_fixture",
+      "repo_path": "./tests/fixtures/graphql_resolver_map_variable_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [],
+        "entrypoints": [],
+        "dependencies": [
+          "@apollo/server",
+          "graphql"
+        ]
+      }
+    },
+    {
+      "name": "graphql_resolver_map_typed_variable_fixture",
+      "repo_path": "./tests/fixtures/graphql_resolver_map_typed_variable_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          {
+            "protocol": "graphql",
+            "method": "POST",
+            "route": "/graphql",
+            "operation_type": "query",
+            "operation_name": "viewer"
+          },
+          {
+            "protocol": "graphql",
+            "method": "POST",
+            "route": "/graphql",
+            "operation_type": "mutation",
+            "operation_name": "updateUser"
+          },
+          {
+            "protocol": "graphql",
+            "method": "POST",
+            "route": "/graphql",
+            "operation_type": "subscription",
+            "operation_name": "onMessage"
+          }
+        ],
+        "entrypoints": [
+          "graphql_resolver::viewer::src/resolvers.ts",
+          "graphql_resolver::updateUser::src/resolvers.ts",
+          "graphql_resolver::onMessage::src/resolvers.ts"
+        ],
+        "dependencies": [
+          "@apollo/server",
+          "graphql"
+        ]
+      }
+    },
+    {
+      "name": "graphql_resolver_map_typed_variable_noise_fixture",
+      "repo_path": "./tests/fixtures/graphql_resolver_map_typed_variable_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [],
+        "entrypoints": [],
+        "dependencies": [
+          "@apollo/server",
+          "graphql"
+        ]
+      }
+    },
+    {
+      "name": "graphql_resolver_map_spread_fixture",
+      "repo_path": "./tests/fixtures/graphql_resolver_map_spread_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          {
+            "protocol": "graphql",
+            "method": "POST",
+            "route": "/graphql",
+            "operation_type": "query",
+            "operation_name": "viewer"
+          },
+          {
+            "protocol": "graphql",
+            "method": "POST",
+            "route": "/graphql",
+            "operation_type": "mutation",
+            "operation_name": "updateUser"
+          },
+          {
+            "protocol": "graphql",
+            "method": "POST",
+            "route": "/graphql",
+            "operation_type": "subscription",
+            "operation_name": "onMessage"
+          }
+        ],
+        "entrypoints": [
+          "graphql_resolver::viewer::src/resolvers.ts",
+          "graphql_resolver::updateUser::src/resolvers.ts",
+          "graphql_resolver::onMessage::src/resolvers.ts"
+        ],
+        "dependencies": [
+          "@apollo/server",
+          "graphql"
+        ]
+      }
+    },
+    {
+      "name": "graphql_resolver_map_spread_noise_fixture",
+      "repo_path": "./tests/fixtures/graphql_resolver_map_spread_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [],
+        "entrypoints": [],
+        "dependencies": [
+          "@apollo/server",
+          "graphql"
+        ]
+      }
+    },
+    {
+      "name": "graphql_resolver_map_assertion_fixture",
+      "repo_path": "./tests/fixtures/graphql_resolver_map_assertion_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          {
+            "protocol": "graphql",
+            "method": "POST",
+            "route": "/graphql",
+            "operation_type": "query",
+            "operation_name": "viewer"
+          },
+          {
+            "protocol": "graphql",
+            "method": "POST",
+            "route": "/graphql",
+            "operation_type": "mutation",
+            "operation_name": "updateUser"
+          },
+          {
+            "protocol": "graphql",
+            "method": "POST",
+            "route": "/graphql",
+            "operation_type": "subscription",
+            "operation_name": "onMessage"
+          }
+        ],
+        "entrypoints": [
+          "graphql_resolver::viewer::src/resolvers.ts",
+          "graphql_resolver::updateUser::src/resolvers.ts",
+          "graphql_resolver::onMessage::src/resolvers.ts"
+        ],
+        "dependencies": [
+          "@apollo/server",
+          "graphql"
+        ]
+      }
+    },
+    {
+      "name": "graphql_resolver_map_assertion_noise_fixture",
+      "repo_path": "./tests/fixtures/graphql_resolver_map_assertion_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [],
+        "entrypoints": [],
+        "dependencies": [
+          "@apollo/server",
+          "graphql"
+        ]
+      }
+    },
+    {
+      "name": "graphql_resolver_map_imported_fixture",
+      "repo_path": "./tests/fixtures/graphql_resolver_map_imported_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          {
+            "protocol": "graphql",
+            "method": "POST",
+            "route": "/graphql",
+            "operation_type": "query",
+            "operation_name": "viewer"
+          },
+          {
+            "protocol": "graphql",
+            "method": "POST",
+            "route": "/graphql",
+            "operation_type": "mutation",
+            "operation_name": "updateUser"
+          },
+          {
+            "protocol": "graphql",
+            "method": "POST",
+            "route": "/graphql",
+            "operation_type": "subscription",
+            "operation_name": "onMessage"
+          }
+        ],
+        "entrypoints": [
+          "graphql_resolver::viewer::src/resolvers.ts",
+          "graphql_resolver::updateUser::src/resolvers.ts",
+          "graphql_resolver::onMessage::src/resolvers.ts"
+        ],
+        "dependencies": [
+          "@apollo/server",
+          "graphql"
+        ]
+      }
+    },
+    {
+      "name": "graphql_resolver_map_imported_noise_fixture",
+      "repo_path": "./tests/fixtures/graphql_resolver_map_imported_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [],
+        "entrypoints": [],
+        "dependencies": [
+          "@apollo/server",
+          "graphql"
+        ]
+      }
+    },
+    {
+      "name": "graphql_resolver_map_namespace_imported_fixture",
+      "repo_path": "./tests/fixtures/graphql_resolver_map_namespace_imported_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          {
+            "protocol": "graphql",
+            "method": "POST",
+            "route": "/graphql",
+            "operation_type": "query",
+            "operation_name": "viewer"
+          },
+          {
+            "protocol": "graphql",
+            "method": "POST",
+            "route": "/graphql",
+            "operation_type": "mutation",
+            "operation_name": "updateUser"
+          },
+          {
+            "protocol": "graphql",
+            "method": "POST",
+            "route": "/graphql",
+            "operation_type": "subscription",
+            "operation_name": "onMessage"
+          }
+        ],
+        "entrypoints": [
+          "graphql_resolver::viewer::src/resolvers.ts",
+          "graphql_resolver::updateUser::src/resolvers.ts",
+          "graphql_resolver::onMessage::src/resolvers.ts"
+        ],
+        "dependencies": [
+          "@apollo/server",
+          "graphql"
+        ]
+      }
+    },
+    {
+      "name": "graphql_resolver_map_namespace_imported_noise_fixture",
+      "repo_path": "./tests/fixtures/graphql_resolver_map_namespace_imported_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [],
+        "entrypoints": [],
+        "dependencies": [
+          "@apollo/server",
+          "graphql"
+        ]
+      }
+    },
+    {
+      "name": "graphql_resolve_field_fixture",
+      "repo_path": "./tests/fixtures/graphql_resolve_field_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          {
+            "protocol": "graphql",
+            "method": "POST",
+            "route": "/graphql",
+            "operation_type": "field",
+            "operation_name": "displayName"
+          },
+          {
+            "protocol": "graphql",
+            "method": "POST",
+            "route": "/graphql",
+            "operation_type": "field",
+            "operation_name": "isActive"
+          }
+        ],
+        "entrypoints": [
+          "graphql_resolver::displayName::src/user.resolver.ts",
+          "graphql_resolver::isActive::src/user.resolver.ts"
+        ],
+        "dependencies": [
+          "@nestjs/graphql",
+          "graphql"
+        ]
+      }
+    },
+    {
+      "name": "graphql_resolve_field_noise_fixture",
+      "repo_path": "./tests/fixtures/graphql_resolve_field_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [],
+        "entrypoints": [],
+        "dependencies": [
+          "@nestjs/graphql",
+          "graphql"
+        ]
+      }
+    },
+    {
+      "name": "grpc_fixture",
+      "repo_path": "./tests/fixtures/grpc_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "grpc:POST /demo.v1.Greeter/SayHello",
+          "grpc:POST /demo.v1.Greeter/SayGoodbye"
+        ],
+        "dependencies": [
+          "@grpc/grpc-js"
+        ]
+      }
+    },
+    {
+      "name": "openapi_fixture",
+      "repo_path": "./tests/fixtures/openapi_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /health",
+          "POST /users"
+        ],
+        "framework_signals": [
+          {
+            "name": "openapi",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "asyncapi_fixture",
+      "repo_path": "./tests/fixtures/asyncapi_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "asyncapi:PUBLISH orders.created",
+          "asyncapi:SUBSCRIBE users.updated"
+        ],
+        "framework_signals": [
+          {
+            "name": "asyncapi",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "kubernetes_fixture",
+      "repo_path": "./tests/fixtures/kubernetes_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /api"
+        ],
+        "framework_signals": [
+          {
+            "name": "kubernetes",
+            "type": "infrastructure"
+          }
+        ],
+        "infrastructure": [
+          {
+            "type": "kubernetes_service",
+            "name": "web"
+          },
+          {
+            "type": "kubernetes_workload",
+            "name": "web"
+          },
+          {
+            "type": "kubernetes_ingress",
+            "name": "web"
+          }
+        ]
+      }
+    },
+    {
+      "name": "helm_ingress_fixture",
+      "repo_path": "./tests/fixtures/helm_ingress_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /shop"
+        ],
+        "framework_signals": [
+          {
+            "name": "kubernetes",
+            "type": "infrastructure"
+          },
+          {
+            "name": "helm",
+            "type": "infrastructure"
+          }
+        ],
+        "infrastructure": [
+          {
+            "type": "kubernetes_ingress",
+            "name": "shop"
+          }
+        ]
+      }
+    },
+    {
+      "name": "kubectl_runbook_fixture",
+      "repo_path": "./tests/fixtures/kubectl_runbook_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "run_hints": [
+          "kubectl --namespace demo port-forward service/web 18080:80"
+        ]
+      }
+    },
+    {
+      "name": "kubernetes_cronjob_fixture",
+      "repo_path": "./tests/fixtures/kubernetes_cronjob_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "framework_signals": [
+          {
+            "name": "kubernetes",
+            "type": "infrastructure"
+          }
+        ],
+        "infrastructure": [
+          {
+            "type": "kubernetes_cronjob",
+            "name": "nightly-sync"
+          }
+        ],
+        "run_hints": [
+          "kubectl --namespace demo create job --from=cronjob/nightly-sync nightly-sync-manual"
+        ]
+      }
+    },
+    {
+      "name": "github_actions_schedule_fixture",
+      "repo_path": "./tests/fixtures/github_actions_schedule_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "framework_signals": [
+          {
+            "name": "github_actions",
+            "type": "infrastructure"
+          }
+        ],
+        "infrastructure": [
+          {
+            "type": "ci_workflow",
+            "file": ".github/workflows/nightly.yml"
+          },
+          {
+            "type": "ci_workflow_schedule",
+            "name": "Nightly Sync"
+          }
+        ]
+      }
+    },
+    {
+      "name": "sveltekit_fixture",
+      "repo_path": "./tests/fixtures/sveltekit_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /api/users/{id}",
+          "DELETE /api/users/{id}"
+        ],
+        "dependencies": [
+          "@sveltejs/kit"
+        ]
+      }
+    },
+    {
+      "name": "astro_fixture",
+      "repo_path": "./tests/fixtures/astro_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "POST /api/orders/{id}"
+        ],
+        "dependencies": [
+          "astro"
+        ]
+      }
+    },
+    {
+      "name": "nestjs_fixture",
+      "repo_path": "./tests/fixtures/nestjs_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /api/users/:id",
+          "POST /api/users"
+        ],
+        "dependencies": [
+          "@nestjs/common"
+        ]
+      }
+    },
+    {
+      "name": "nestjs_gateway_fixture",
+      "repo_path": "./tests/fixtures/nestjs_gateway_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "websocket:GET /chat"
+        ],
+        "entrypoints": [
+          "nestjs_gateway_event::join-room::src/chat.gateway.ts",
+          "nestjs_gateway_event::send-message::src/chat.gateway.ts"
+        ],
+        "dependencies": [
+          "@nestjs/common",
+          "@nestjs/websockets",
+          "socket.io"
+        ],
+        "framework_signals": [
+          "nestjs::backend",
+          "socketio::backend",
+          "websocket::backend"
+        ]
+      }
+    },
+    {
+      "name": "nestjs_gateway_noise_fixture",
+      "repo_path": "./tests/fixtures/nestjs_gateway_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [],
+        "entrypoints": [],
+        "dependencies": [
+          "@nestjs/common",
+          "@nestjs/websockets",
+          "socket.io"
+        ],
+        "framework_signals": [
+          "nestjs::backend",
+          "socketio::backend"
+        ]
+      }
+    },
+    {
+      "name": "nestjs_gateway_path_fixture",
+      "repo_path": "./tests/fixtures/nestjs_gateway_path_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "websocket:GET /realtime"
+        ],
+        "entrypoints": [
+          "nestjs_gateway_event::join-room::src/events.gateway.ts"
+        ],
+        "dependencies": [
+          "@nestjs/common",
+          "@nestjs/websockets",
+          "socket.io"
+        ],
+        "framework_signals": [
+          "nestjs::backend",
+          "socketio::backend",
+          "websocket::backend"
+        ]
+      }
+    },
+    {
+      "name": "nestjs_gateway_path_noise_fixture",
+      "repo_path": "./tests/fixtures/nestjs_gateway_path_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [],
+        "entrypoints": [],
+        "dependencies": [
+          "@nestjs/common",
+          "@nestjs/websockets",
+          "socket.io"
+        ],
+        "framework_signals": [
+          "nestjs::backend",
+          "socketio::backend"
+        ]
+      }
+    },
+    {
+      "name": "csharp_minimal_api_fixture",
+      "repo_path": "./tests/fixtures/csharp_minimal_api_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /api/health",
+          "POST /api/admin/login"
+        ]
+      }
+    },
+    {
+      "name": "nestjs_constants_fixture",
+      "repo_path": "./tests/fixtures/nestjs_constants_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /api/accounts/:id",
+          "POST /api/accounts"
+        ],
+        "dependencies": [
+          "@nestjs/common"
+        ]
+      }
+    },
+    {
+      "name": "spring_fixture",
+      "repo_path": "./tests/fixtures/spring_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /api/orders/{id}"
+        ]
+      }
+    },
+    {
+      "name": "spring_constants_fixture",
+      "repo_path": "./tests/fixtures/spring_constants_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /api/accounts/{id}",
+          "POST /api/accounts"
+        ]
+      }
+    },
+    {
+      "name": "drf_router_fixture",
+      "repo_path": "./tests/fixtures/drf_router_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /api/users",
+          "GET /api/users/{pk}",
+          "POST /api/users/{pk}/activate"
+        ],
+        "dependencies": [
+          "django",
+          "djangorestframework"
+        ]
+      }
+    },
+    {
+      "name": "django_fixture",
+      "repo_path": "./tests/fixtures/django_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /health",
+          "GET /orders/{order_id}"
+        ],
+        "dependencies": [
+          "django"
+        ]
+      }
+    },
+    {
+      "name": "django_imported_view_fixture",
+      "repo_path": "./tests/fixtures/django_imported_view_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /health",
+          "GET /orders/{order_id}"
+        ],
+        "dependencies": [
+          "django"
+        ]
+      }
+    },
+    {
+      "name": "django_imported_view_noise_fixture",
+      "repo_path": "./tests/fixtures/django_imported_view_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /health",
+          "GET /orders/{order_id}"
+        ],
+        "dependencies": [
+          "django"
+        ]
+      }
+    },
+    {
+      "name": "django_class_view_fixture",
+      "repo_path": "./tests/fixtures/django_class_view_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /health",
+          "GET /orders/{order_id}"
+        ],
+        "dependencies": [
+          "django"
+        ]
+      }
+    },
+    {
+      "name": "django_class_view_noise_fixture",
+      "repo_path": "./tests/fixtures/django_class_view_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /health",
+          "GET /orders/{order_id}"
+        ],
+        "dependencies": [
+          "django"
+        ]
+      }
+    },
+    {
+      "name": "django_include_fixture",
+      "repo_path": "./tests/fixtures/django_include_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /api/health",
+          "GET /api/orders/{order_id}"
+        ],
+        "dependencies": [
+          "django"
+        ]
+      }
+    },
+    {
+      "name": "django_include_noise_fixture",
+      "repo_path": "./tests/fixtures/django_include_imported_view_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /api/health",
+          "GET /api/orders/{order_id}"
+        ],
+        "dependencies": [
+          "django"
+        ]
+      }
+    },
+    {
+      "name": "django_include_tuple_fixture",
+      "repo_path": "./tests/fixtures/django_include_tuple_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /api/health",
+          "GET /api/orders/{order_id}"
+        ],
+        "dependencies": [
+          "django"
+        ]
+      }
+    },
+    {
+      "name": "django_include_tuple_noise_fixture",
+      "repo_path": "./tests/fixtures/django_include_tuple_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /api/health",
+          "GET /api/orders/{order_id}"
+        ],
+        "dependencies": [
+          "django"
+        ]
+      }
+    },
+    {
+      "name": "rails_fixture",
+      "repo_path": "./tests/fixtures/rails_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /health",
+          "GET /api/accounts",
+          "GET /api/accounts/:account_id",
+          "GET /api/accounts/:account_id/users",
+          "GET /api/profile",
+          "GET /api/sessions/check",
+          "PATCH /api/profile",
+          "PUT /api/profile",
+          "POST /api/sessions/check"
+        ]
+      }
+    },
+    {
+      "name": "laravel_fixture",
+      "repo_path": "./tests/fixtures/laravel_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /api/health",
+          "GET /api/users",
+          "GET /api/users/{user}",
+          "GET /api/reports",
+          "GET /api/reports/{report}",
+          "GET /api/admin/sessions/check",
+          "POST /api/reports",
+          "PATCH /api/reports/{report}",
+          "PUT /api/reports/{report}",
+          "DELETE /api/reports/{report}",
+          "POST /api/admin/sessions/check"
+        ]
+      }
+    },
+    {
+      "name": "gin_fixture",
+      "repo_path": "./tests/fixtures/gin_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /api/health",
+          "POST /api/admin/login"
+        ],
+        "dependencies": [
+          "github.com/gin-gonic/gin"
+        ]
+      }
+    },
+    {
+      "name": "chi_fixture",
+      "repo_path": "./tests/fixtures/chi_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /api/health",
+          "POST /api/admin/login"
+        ],
+        "dependencies": [
+          "github.com/go-chi/chi/v5"
+        ]
+      }
+    },
+    {
+      "name": "echo_fixture",
+      "repo_path": "./tests/fixtures/echo_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /api/health",
+          "DELETE /api/admin/users/:id"
+        ],
+        "dependencies": [
+          "github.com/labstack/echo/v4"
+        ]
+      }
+    },
+    {
+      "name": "django_include_missing_module_noise_fixture",
+      "repo_path": "./tests/fixtures/django_include_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [],
+        "dependencies": [
+          "django"
+        ]
+      }
+    },
+    {
+      "name": "rust_route_fixture",
+      "repo_path": "./tests/fixtures/rust_route_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /health",
+          "POST /users"
+        ],
+        "dependencies": [
+          "actix-web"
+        ]
+      }
+    },
+    {
+      "name": "actix_scope_fixture",
+      "repo_path": "./tests/fixtures/actix_scope_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /api/health",
+          "POST /api/users",
+          "GET /api/users/{id}"
+        ],
+        "dependencies": [
+          "actix-web"
+        ],
+        "framework_signals": [
+          "actix::backend"
+        ]
+      }
+    },
+    {
+      "name": "actix_scope_noise_fixture",
+      "repo_path": "./tests/fixtures/actix_scope_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /health"
+        ],
+        "dependencies": [
+          "actix-web"
+        ],
+        "framework_signals": [
+          "actix::backend"
+        ]
+      }
+    },
+    {
+      "name": "rocket_mount_fixture",
+      "repo_path": "./tests/fixtures/rocket_mount_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /api/health",
+          "POST /api/users",
+          "GET /api/users/{id}"
+        ],
+        "dependencies": [
+          "rocket"
+        ],
+        "framework_signals": [
+          "rocket::backend"
+        ]
+      }
+    },
+    {
+      "name": "rocket_mount_noise_fixture",
+      "repo_path": "./tests/fixtures/rocket_mount_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /api/health"
+        ],
+        "dependencies": [
+          "rocket"
+        ],
+        "framework_signals": [
+          "rocket::backend"
+        ]
+      }
+    },
+    {
+      "name": "warp_fixture",
+      "repo_path": "./tests/fixtures/warp_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /api/health",
+          "POST /api/users/{param}"
+        ],
+        "dependencies": [
+          "warp"
+        ],
+        "framework_signals": [
+          "warp::backend"
+        ]
+      }
+    },
+    {
+      "name": "warp_noise_fixture",
+      "repo_path": "./tests/fixtures/warp_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /api/health"
+        ],
+        "dependencies": [
+          "warp"
+        ],
+        "framework_signals": [
+          "warp::backend"
+        ]
+      }
+    },
+    {
+      "name": "tonic_grpc_fixture",
+      "repo_path": "./tests/fixtures/tonic_grpc_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "grpc:POST /demo.v1.Greeter/SayHello",
+          "grpc:POST /demo.v1.Greeter/SayGoodbye"
+        ],
+        "dependencies": [
+          "tonic"
+        ],
+        "framework_signals": [
+          "grpc::backend",
+          "tonic::backend"
+        ]
+      }
+    },
+    {
+      "name": "tonic_grpc_noise_fixture",
+      "repo_path": "./tests/fixtures/tonic_grpc_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "grpc:POST /demo.v1.Health/Check"
+        ],
+        "dependencies": [
+          "tonic"
+        ],
+        "framework_signals": [
+          "grpc::backend",
+          "tonic::backend"
+        ]
+      }
+    },
+    {
+      "name": "axum_fixture",
+      "repo_path": "./tests/fixtures/axum_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /health",
+          "POST /api/users",
+          "GET /api/users/{id}"
+        ],
+        "dependencies": [
+          "axum"
+        ]
+      }
+    },
+    {
+      "name": "axum_comment_noise_fixture",
+      "repo_path": "./tests/fixtures/axum_comment_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /health"
+        ],
+        "dependencies": [
+          "axum"
+        ]
+      }
+    },
+    {
+      "name": "rust_clap_command_fixture",
+      "repo_path": "./tests/fixtures/rust_clap_command_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          "rust_clap_command::ops::src/main.rs",
+          "rust_clap_command::sync-reports::src/main.rs",
+          "rust_main::src/main.rs"
+        ],
+        "dependencies": [
+          "clap"
+        ],
+        "framework_signals": [
+          "clap::backend"
+        ]
+      }
+    },
+    {
+      "name": "rust_clap_command_noise_fixture",
+      "repo_path": "./tests/fixtures/rust_clap_command_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [],
+        "dependencies": [
+          "clap"
+        ],
+        "framework_signals": [
+          "clap::backend"
+        ]
+      }
+    },
+    {
+      "name": "rust_clap_derive_fixture",
+      "repo_path": "./tests/fixtures/rust_clap_derive_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          "rust_clap_command::cleanup-cache::src/main.rs",
+          "rust_clap_command::ops-cli::src/main.rs",
+          "rust_clap_command::sync-reports::src/main.rs",
+          "rust_main::src/main.rs"
+        ],
+        "dependencies": [
+          "clap"
+        ],
+        "framework_signals": [
+          "clap::backend"
+        ]
+      }
+    },
+    {
+      "name": "rust_clap_derive_noise_fixture",
+      "repo_path": "./tests/fixtures/rust_clap_derive_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [],
+        "dependencies": [
+          "clap"
+        ],
+        "framework_signals": [
+          "clap::backend"
+        ]
+      }
+    },
+    {
+      "name": "csharp_attribute_route_fixture",
+      "repo_path": "./tests/fixtures/csharp_attribute_route_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /api/auth/health",
+          "POST /api/auth/login"
+        ],
+        "dependencies": [
+          "Microsoft.AspNetCore.Mvc.Core"
+        ]
+      }
+    },
+    {
+      "name": "php_route_fixture",
+      "repo_path": "./tests/fixtures/php_route_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /health",
+          "POST /sessions"
+        ],
+        "dependencies": [
+          "slim"
+        ]
+      }
+    },
+    {
+      "name": "ruby_route_fixture",
+      "repo_path": "./tests/fixtures/ruby_route_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /health",
+          "POST /sessions"
+        ],
+        "dependencies": [
+          "sinatra"
+        ]
+      }
+    },
+    {
+      "name": "aspnet_controller_fixture",
+      "repo_path": "./tests/fixtures/aspnet_controller_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /api/users/{id}",
+          "POST /api/users"
+        ],
+        "dependencies": [
+          "Microsoft.AspNetCore.Mvc.Core"
+        ]
+      }
+    },
+    {
+      "name": "csharp_attribute_noise_fixture",
+      "repo_path": "./tests/fixtures/csharp_attribute_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /api/health"
+        ],
+        "dependencies": [
+          "Microsoft.AspNetCore.Mvc.Core"
+        ]
+      }
+    },
+    {
+      "name": "celery_beat_schedule_fixture",
+      "repo_path": "./tests/fixtures/celery_beat_schedule_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          "celery_beat_schedule::nightly-sync::src/beat.py",
+          "celery_beat_schedule::early-sync::src/beat.py"
+        ],
+        "dependencies": [
+          "celery"
+        ],
+        "framework_signals": [
+          "celery::backend"
+        ]
+      }
+    },
+    {
+      "name": "celery_beat_schedule_noise_fixture",
+      "repo_path": "./tests/fixtures/celery_beat_schedule_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [],
+        "dependencies": [
+          "celery"
+        ],
+        "framework_signals": [
+          "celery::backend"
+        ]
+      }
+    },
+    {
+      "name": "django_channels_fixture",
+      "repo_path": "./tests/fixtures/django_channels_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          "django_channels_consumer::ChatConsumer::chat/consumers.py"
+        ],
+        "dependencies": [
+          "Django",
+          "channels"
+        ],
+        "framework_signals": [
+          "django::backend",
+          "django_channels::backend",
+          "websocket::backend"
+        ]
+      }
+    },
+    {
+      "name": "django_channels_noise_fixture",
+      "repo_path": "./tests/fixtures/django_channels_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [],
+        "dependencies": [
+          "Django",
+          "channels"
+        ],
+        "framework_signals": [
+          "django::backend",
+          "django_channels::backend"
+        ]
+      }
+    },
+    {
+      "name": "socketio_event_fixture",
+      "repo_path": "./tests/fixtures/socketio_event_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          {
+            "protocol": "websocket",
+            "method": "GET",
+            "route": "/socket.io"
+          },
+          {
+            "protocol": "websocket",
+            "method": "GET",
+            "route": "/chat"
+          }
+        ],
+        "entrypoints": [
+          "socketio_event::join-room::src/server.ts",
+          "socketio_event::send-message::src/server.ts"
+        ],
+        "dependencies": [
+          "socket.io"
+        ],
+        "framework_signals": [
+          "socketio::backend",
+          "websocket::backend"
+        ]
+      }
+    },
+    {
+      "name": "socketio_event_noise_fixture",
+      "repo_path": "./tests/fixtures/socketio_event_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [],
+        "entrypoints": [],
+        "dependencies": [
+          "socket.io"
+        ],
+        "framework_signals": [
+          "socketio::backend"
+        ]
+      }
+    },
+    {
+      "name": "socketio_inline_namespace_fixture",
+      "repo_path": "./tests/fixtures/socketio_inline_namespace_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          {
+            "protocol": "websocket",
+            "method": "GET",
+            "route": "/realtime"
+          },
+          {
+            "protocol": "websocket",
+            "method": "GET",
+            "route": "/chat"
+          }
+        ],
+        "entrypoints": [
+          "socketio_event::join-room::src/server.ts",
+          "socketio_event::send-message::src/server.ts"
+        ],
+        "dependencies": [
+          "socket.io"
+        ],
+        "framework_signals": [
+          "socketio::backend",
+          "websocket::backend"
+        ]
+      }
+    },
+    {
+      "name": "socketio_inline_namespace_noise_fixture",
+      "repo_path": "./tests/fixtures/socketio_inline_namespace_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          {
+            "protocol": "websocket",
+            "method": "GET",
+            "route": "/realtime"
+          },
+          {
+            "protocol": "websocket",
+            "method": "GET",
+            "route": "/chat"
+          }
+        ],
+        "entrypoints": [
+          "socketio_event::send-message::src/server.ts"
+        ],
+        "dependencies": [
+          "socket.io"
+        ],
+        "framework_signals": [
+          "socketio::backend",
+          "websocket::backend"
+        ]
+      }
+    },
+    {
+      "name": "trpc_router_fixture",
+      "repo_path": "./tests/fixtures/trpc_router_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /trpc/health",
+          "POST /trpc/posts.create"
+        ],
+        "dependencies": [
+          "@trpc/server"
+        ],
+        "framework_signals": [
+          "trpc::backend"
+        ]
+      }
+    },
+    {
+      "name": "trpc_router_noise_fixture",
+      "repo_path": "./tests/fixtures/trpc_router_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [],
+        "dependencies": [
+          "@trpc/server"
+        ],
+        "framework_signals": [
+          "trpc::backend"
+        ]
+      }
+    },
+    {
+      "name": "go_cron_job_fixture",
+      "repo_path": "./tests/fixtures/go_cron_job_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          "go_cron_job::syncReports::cmd/jobs.go",
+          "go_main::cmd/jobs.go"
+        ],
+        "dependencies": [
+          "github.com/robfig/cron/v3"
+        ],
+        "framework_signals": [
+          "cron::backend"
+        ]
+      }
+    },
+    {
+      "name": "go_cron_job_noise_fixture",
+      "repo_path": "./tests/fixtures/go_cron_job_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [],
+        "dependencies": [
+          "github.com/robfig/cron/v3"
+        ],
+        "framework_signals": [
+          "cron::backend"
+        ]
+      }
+    },
+    {
+      "name": "go_gocron_job_fixture",
+      "repo_path": "./tests/fixtures/go_gocron_job_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          "go_cron_job::syncReports::cmd/jobs.go",
+          "go_main::cmd/jobs.go"
+        ],
+        "dependencies": [
+          "github.com/go-co-op/gocron"
+        ],
+        "framework_signals": [
+          "cron::backend"
+        ]
+      }
+    },
+    {
+      "name": "go_gocron_job_noise_fixture",
+      "repo_path": "./tests/fixtures/go_gocron_job_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [],
+        "dependencies": [
+          "github.com/go-co-op/gocron"
+        ],
+        "framework_signals": [
+          "cron::backend"
+        ]
+      }
+    },
+    {
+      "name": "rake_task_fixture",
+      "repo_path": "./tests/fixtures/rake_task_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          "rake_task::reports:sync::lib/tasks/reports.rake",
+          "rake_task::cleanup:run::lib/tasks/reports.rake"
+        ],
+        "dependencies": [
+          "rake"
+        ],
+        "framework_signals": [
+          "rake::backend"
+        ]
+      }
+    },
+    {
+      "name": "rake_task_noise_fixture",
+      "repo_path": "./tests/fixtures/rake_task_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [],
+        "dependencies": [
+          "rake"
+        ],
+        "framework_signals": [
+          "rake::backend"
+        ]
+      }
+    },
+    {
+      "name": "activejob_job_fixture",
+      "repo_path": "./tests/fixtures/activejob_job_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          {
+            "kind": "activejob_job",
+            "name": "Jobs::ReportJob",
+            "file": "app/jobs/report_job.rb"
+          }
+        ],
+        "dependencies": [
+          "activejob"
+        ],
+        "framework_signals": [
+          {
+            "name": "activejob",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "activejob_job_noise_fixture",
+      "repo_path": "./tests/fixtures/activejob_job_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [],
+        "dependencies": [
+          "activejob"
+        ],
+        "framework_signals": [
+          {
+            "name": "activejob",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "activejob_producer_fixture",
+      "repo_path": "./tests/fixtures/activejob_producer_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          {
+            "kind": "activejob_producer",
+            "name": "Jobs::ReportJob",
+            "file": "app/services/report_dispatcher.rb"
+          }
+        ],
+        "dependencies": [
+          "activejob"
+        ],
+        "framework_signals": [
+          {
+            "name": "activejob",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "activejob_producer_noise_fixture",
+      "repo_path": "./tests/fixtures/activejob_producer_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [],
+        "dependencies": [
+          "activejob"
+        ],
+        "framework_signals": [
+          {
+            "name": "activejob",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "que_job_fixture",
+      "repo_path": "./tests/fixtures/que_job_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          {
+            "kind": "que_job",
+            "name": "Jobs::ReportJob",
+            "file": "app/jobs/report_job.rb"
+          }
+        ],
+        "dependencies": [
+          "que"
+        ],
+        "framework_signals": [
+          {
+            "name": "que",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "que_job_noise_fixture",
+      "repo_path": "./tests/fixtures/que_job_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [],
+        "dependencies": [
+          "que"
+        ],
+        "framework_signals": [
+          {
+            "name": "que",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "que_producer_fixture",
+      "repo_path": "./tests/fixtures/que_producer_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          {
+            "kind": "que_producer",
+            "name": "Jobs::ReportJob",
+            "file": "app/services/report_dispatcher.rb"
+          }
+        ],
+        "dependencies": [
+          "que"
+        ],
+        "framework_signals": [
+          {
+            "name": "que",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "que_producer_noise_fixture",
+      "repo_path": "./tests/fixtures/que_producer_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [],
+        "dependencies": [
+          "que"
+        ],
+        "framework_signals": [
+          {
+            "name": "que",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "actioncable_channel_fixture",
+      "repo_path": "./tests/fixtures/actioncable_channel_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          {
+            "kind": "actioncable_channel",
+            "name": "Chat::RoomChannel",
+            "file": "app/channels/chat/room_channel.rb"
+          }
+        ],
+        "dependencies": [
+          "rails"
+        ],
+        "framework_signals": [
+          "rails::backend",
+          "actioncable::backend",
+          "websocket::backend"
+        ]
+      }
+    },
+    {
+      "name": "actioncable_channel_noise_fixture",
+      "repo_path": "./tests/fixtures/actioncable_channel_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [],
+        "dependencies": [
+          "rails"
+        ],
+        "framework_signals": [
+          "rails::backend"
+        ]
+      }
+    },
+    {
+      "name": "laravel_queue_job_fixture",
+      "repo_path": "./tests/fixtures/laravel_queue_job_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          "laravel_queue_job::SendDigest::app/Jobs/SendDigest.php"
+        ],
+        "dependencies": [
+          "laravel"
+        ],
+        "framework_signals": [
+          "laravel::backend"
+        ]
+      }
+    },
+    {
+      "name": "laravel_queue_job_noise_fixture",
+      "repo_path": "./tests/fixtures/laravel_queue_job_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [],
+        "dependencies": [
+          "laravel"
+        ],
+        "framework_signals": [
+          "laravel::backend"
+        ]
+      }
+    },
+    {
+      "name": "laravel_queue_producer_fixture",
+      "repo_path": "./tests/fixtures/laravel_queue_producer_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          "laravel_queue_producer::SendDigest::app/Services/Mailer.php"
+        ],
+        "dependencies": [
+          "laravel"
+        ],
+        "framework_signals": [
+          "laravel::backend"
+        ]
+      }
+    },
+    {
+      "name": "laravel_queue_producer_noise_fixture",
+      "repo_path": "./tests/fixtures/laravel_queue_producer_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [],
+        "dependencies": [
+          "laravel"
+        ],
+        "framework_signals": [
+          "laravel::backend"
+        ]
+      }
+    },
+    {
+      "name": "kafka_consumer_fixture",
+      "repo_path": "./tests/fixtures/kafka_consumer_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          "kafka_consumer::reports.events::src/consumer.ts"
+        ],
+        "dependencies": [
+          "kafkajs"
+        ],
+        "framework_signals": [
+          "kafka::backend"
+        ]
+      }
+    },
+    {
+      "name": "kafka_consumer_noise_fixture",
+      "repo_path": "./tests/fixtures/kafka_consumer_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [],
+        "dependencies": [
+          "kafkajs"
+        ],
+        "framework_signals": [
+          "kafka::backend"
+        ]
+      }
+    },
+    {
+      "name": "kafka_producer_fixture",
+      "repo_path": "./tests/fixtures/kafka_producer_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          "kafka_producer::reports.events::src/publisher.ts"
+        ],
+        "dependencies": [
+          "kafkajs"
+        ],
+        "framework_signals": [
+          "kafka::backend"
+        ]
+      }
+    },
+    {
+      "name": "kafka_producer_noise_fixture",
+      "repo_path": "./tests/fixtures/kafka_producer_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [],
+        "dependencies": [
+          "kafkajs"
+        ],
+        "framework_signals": [
+          "kafka::backend"
+        ]
+      }
+    },
+    {
+      "name": "mixed_kafka_flow_fixture",
+      "repo_path": "./tests/fixtures/mixed_kafka_flow_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          "kafka_consumer::reports.events::src/consumer.ts",
+          "kafka_producer::reports.events::workers/publisher.py"
+        ],
+        "cross_file_event_edges": [
+          "kafka::reports.events::workers/publisher.py::src/consumer.ts"
+        ],
+        "dependencies": [
+          "kafka-python",
+          "kafkajs"
+        ],
+        "framework_signals": [
+          "kafka::backend"
+        ]
+      }
+    },
+    {
+      "name": "mixed_spring_kafka_flow_fixture",
+      "repo_path": "./tests/fixtures/mixed_spring_kafka_flow_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          "kafka_consumer::reports.events::src/main/java/com/example/events/ReportListener.java",
+          "kafka_producer::reports.events::workers/publisher.py"
+        ],
+        "cross_file_event_edges": [
+          "kafka::reports.events::workers/publisher.py::src/main/java/com/example/events/ReportListener.java"
+        ],
+        "dependencies": [
+          "kafka-python",
+          "spring-kafka"
+        ],
+        "framework_signals": [
+          "spring::backend",
+          "kafka::backend"
+        ]
+      }
+    },
+    {
+      "name": "rabbitmq_consumer_fixture",
+      "repo_path": "./tests/fixtures/rabbitmq_consumer_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          "rabbitmq_consumer::email-delivery::workers/consumer.py"
+        ],
+        "dependencies": [
+          "pika"
+        ],
+        "framework_signals": [
+          "rabbitmq::backend"
+        ]
+      }
+    },
+    {
+      "name": "rabbitmq_consumer_noise_fixture",
+      "repo_path": "./tests/fixtures/rabbitmq_consumer_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [],
+        "dependencies": [
+          "pika"
+        ],
+        "framework_signals": [
+          "rabbitmq::backend"
+        ]
+      }
+    },
+    {
+      "name": "rabbitmq_producer_fixture",
+      "repo_path": "./tests/fixtures/rabbitmq_producer_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          "rabbitmq_producer::email-delivery::workers/publisher.py"
+        ],
+        "dependencies": [
+          "pika"
+        ],
+        "framework_signals": [
+          "rabbitmq::backend"
+        ]
+      }
+    },
+    {
+      "name": "rabbitmq_producer_noise_fixture",
+      "repo_path": "./tests/fixtures/rabbitmq_producer_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [],
+        "dependencies": [
+          "pika"
+        ],
+        "framework_signals": [
+          "rabbitmq::backend"
+        ]
+      }
+    },
+    {
+      "name": "rabbitmq_js_consumer_fixture",
+      "repo_path": "./tests/fixtures/rabbitmq_js_consumer_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          "rabbitmq_consumer::billing-events::src/consumer.ts"
+        ],
+        "dependencies": [
+          "amqplib"
+        ],
+        "framework_signals": [
+          "rabbitmq::backend"
+        ]
+      }
+    },
+    {
+      "name": "rabbitmq_js_consumer_noise_fixture",
+      "repo_path": "./tests/fixtures/rabbitmq_js_consumer_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [],
+        "dependencies": [
+          "amqplib"
+        ],
+        "framework_signals": [
+          "rabbitmq::backend"
+        ]
+      }
+    },
+    {
+      "name": "mixed_rabbitmq_flow_fixture",
+      "repo_path": "./tests/fixtures/mixed_rabbitmq_flow_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          "rabbitmq_producer::billing-events::src/publisher.ts",
+          "rabbitmq_consumer::billing-events::workers/consumer.py"
+        ],
+        "cross_file_event_edges": [
+          "rabbitmq::billing-events::src/publisher.ts::workers/consumer.py"
+        ],
+        "dependencies": [
+          "amqplib",
+          "pika"
+        ],
+        "framework_signals": [
+          "rabbitmq::backend"
+        ]
+      }
+    },
+    {
+      "name": "mixed_spring_rabbitmq_flow_fixture",
+      "repo_path": "./tests/fixtures/mixed_spring_rabbitmq_flow_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          "rabbitmq_producer::billing-events::src/publisher.ts",
+          "rabbitmq_consumer::billing-events::src/main/java/com/example/events/BillingListener.java"
+        ],
+        "cross_file_event_edges": [
+          "rabbitmq::billing-events::src/publisher.ts::src/main/java/com/example/events/BillingListener.java"
+        ],
+        "dependencies": [
+          "amqplib",
+          "spring-rabbit"
+        ],
+        "framework_signals": [
+          "spring::backend",
+          "rabbitmq::backend"
+        ]
+      }
+    },
+    {
+      "name": "mixed_masstransit_flow_fixture",
+      "repo_path": "./tests/fixtures/mixed_masstransit_flow_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          "masstransit_consumer::OrderSubmittedConsumer::src/Consumers.cs",
+          "masstransit_producer::OrderSubmitted::src/Publisher.cs"
+        ],
+        "cross_file_event_edges": [
+          "masstransit::OrderSubmitted::src/Publisher.cs::src/Consumers.cs"
+        ],
+        "dependencies": [
+          "MassTransit"
+        ],
+        "framework_signals": [
+          "masstransit::backend"
+        ]
+      }
+    },
+    {
+      "name": "mixed_laravel_queue_flow_fixture",
+      "repo_path": "./tests/fixtures/mixed_laravel_queue_flow_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          "laravel_queue_job::SendDigest::app/Jobs/SendDigest.php",
+          "laravel_queue_producer::SendDigest::app/Services/Mailer.php"
+        ],
+        "cross_file_event_edges": [
+          "laravel_queue::SendDigest::app/Services/Mailer.php::app/Jobs/SendDigest.php"
+        ],
+        "dependencies": [
+          "laravel"
+        ],
+        "framework_signals": [
+          "laravel::backend"
+        ]
+      }
+    },
+    {
+      "name": "mixed_symfony_messenger_flow_fixture",
+      "repo_path": "./tests/fixtures/mixed_symfony_messenger_flow_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          "symfony_message_handler::SendEmailHandler::src/MessageHandler/SendEmailHandler.php",
+          "symfony_message_producer::SendEmail::src/Controller/NotifyController.php"
+        ],
+        "cross_file_event_edges": [
+          "symfony_messenger::SendEmail::src/Controller/NotifyController.php::src/MessageHandler/SendEmailHandler.php"
+        ],
+        "dependencies": [
+          "symfony"
+        ],
+        "framework_signals": [
+          "symfony::backend"
+        ]
+      }
+    },
+    {
+      "name": "mixed_sidekiq_flow_fixture",
+      "repo_path": "./tests/fixtures/mixed_sidekiq_flow_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          {
+            "kind": "sidekiq_worker",
+            "name": "Workers::ReportWorker",
+            "file": "app/workers/report_worker.rb"
+          },
+          "sidekiq_producer::Workers::ReportWorker::app/services/report_dispatcher.rb"
+        ],
+        "cross_file_event_edges": [
+          "sidekiq::Workers::ReportWorker::app/services/report_dispatcher.rb::app/workers/report_worker.rb"
+        ],
+        "dependencies": [
+          "sidekiq"
+        ],
+        "framework_signals": [
+          {
+            "name": "sidekiq",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "mixed_activejob_flow_fixture",
+      "repo_path": "./tests/fixtures/mixed_activejob_flow_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          {
+            "kind": "activejob_job",
+            "name": "Jobs::ReportJob",
+            "file": "app/jobs/report_job.rb"
+          },
+          {
+            "kind": "activejob_producer",
+            "name": "Jobs::ReportJob",
+            "file": "app/services/report_dispatcher.rb"
+          }
+        ],
+        "cross_file_event_edges": [
+          "activejob::Jobs::ReportJob::app/services/report_dispatcher.rb::app/jobs/report_job.rb"
+        ],
+        "dependencies": [
+          "activejob"
+        ],
+        "framework_signals": [
+          {
+            "name": "activejob",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "mixed_que_flow_fixture",
+      "repo_path": "./tests/fixtures/mixed_que_flow_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          {
+            "kind": "que_job",
+            "name": "Jobs::ReportJob",
+            "file": "app/jobs/report_job.rb"
+          },
+          {
+            "kind": "que_producer",
+            "name": "Jobs::ReportJob",
+            "file": "app/services/report_dispatcher.rb"
+          }
+        ],
+        "cross_file_event_edges": [
+          "que::Jobs::ReportJob::app/services/report_dispatcher.rb::app/jobs/report_job.rb"
+        ],
+        "dependencies": [
+          "que"
+        ],
+        "framework_signals": [
+          {
+            "name": "que",
+            "type": "backend"
+          }
+        ]
+      }
+    },
+    {
+      "name": "mixed_rabbitmq_queue_fixture",
+      "repo_path": "./tests/fixtures/mixed_rabbitmq_queue_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          "rabbitmq_consumer::billing-events::src/consumer.ts",
+          "rabbitmq_consumer::email-delivery::workers/consumer.py"
+        ],
+        "dependencies": [
+          "amqplib",
+          "pika"
+        ],
+        "framework_signals": [
+          "rabbitmq::backend"
+        ]
+      }
+    },
+    {
+      "name": "symfony_messenger_fixture",
+      "repo_path": "./tests/fixtures/symfony_messenger_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          "symfony_message_handler::SendEmailHandler::src/MessageHandler/SendEmailHandler.php"
+        ],
+        "dependencies": [
+          "symfony"
+        ],
+        "framework_signals": [
+          "symfony::backend"
+        ]
+      }
+    },
+    {
+      "name": "symfony_messenger_noise_fixture",
+      "repo_path": "./tests/fixtures/symfony_messenger_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [],
+        "dependencies": [
+          "symfony"
+        ],
+        "framework_signals": [
+          "symfony::backend"
+        ]
+      }
+    },
+    {
+      "name": "symfony_message_producer_fixture",
+      "repo_path": "./tests/fixtures/symfony_message_producer_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          "symfony_message_producer::SendEmail::src/Controller/NotifyController.php"
+        ],
+        "dependencies": [
+          "symfony"
+        ],
+        "framework_signals": [
+          "symfony::backend"
+        ]
+      }
+    },
+    {
+      "name": "symfony_message_producer_noise_fixture",
+      "repo_path": "./tests/fixtures/symfony_message_producer_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [],
+        "dependencies": [
+          "symfony"
+        ],
+        "framework_signals": [
+          "symfony::backend"
+        ]
+      }
+    },
+    {
+      "name": "resque_worker_fixture",
+      "repo_path": "./tests/fixtures/resque_worker_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          "resque_worker::Workers::SendDigestWorker::app/workers/send_digest_worker.rb"
+        ],
+        "dependencies": [
+          "resque"
+        ],
+        "framework_signals": [
+          "resque::backend"
+        ]
+      }
+    },
+    {
+      "name": "resque_worker_noise_fixture",
+      "repo_path": "./tests/fixtures/resque_worker_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [],
+        "dependencies": [
+          "resque"
+        ],
+        "framework_signals": [
+          "resque::backend"
+        ]
+      }
+    },
+    {
+      "name": "resque_producer_fixture",
+      "repo_path": "./tests/fixtures/resque_producer_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          "resque_producer::Workers::SendDigestWorker::app/services/digest_dispatcher.rb"
+        ],
+        "dependencies": [
+          "resque"
+        ],
+        "framework_signals": [
+          "resque::backend"
+        ]
+      }
+    },
+    {
+      "name": "resque_producer_noise_fixture",
+      "repo_path": "./tests/fixtures/resque_producer_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [],
+        "dependencies": [
+          "resque"
+        ],
+        "framework_signals": [
+          "resque::backend"
+        ]
+      }
+    },
+    {
+      "name": "mixed_resque_flow_fixture",
+      "repo_path": "./tests/fixtures/mixed_resque_flow_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          "resque_worker::Workers::SendDigestWorker::app/workers/send_digest_worker.rb",
+          "resque_producer::Workers::SendDigestWorker::app/services/digest_dispatcher.rb"
+        ],
+        "cross_file_event_edges": [
+          "resque::Workers::SendDigestWorker::app/services/digest_dispatcher.rb::app/workers/send_digest_worker.rb"
+        ],
+        "dependencies": [
+          "resque"
+        ],
+        "framework_signals": [
+          "resque::backend"
+        ]
+      }
+    },
+    {
+      "name": "mixed_celery_flow_fixture",
+      "repo_path": "./tests/fixtures/mixed_celery_flow_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          {
+            "kind": "celery_task",
+            "name": "inventory.refresh",
+            "file": "src/tasks.py"
+          },
+          {
+            "kind": "celery_producer",
+            "name": "inventory.refresh",
+            "file": "src/dispatch.py"
+          }
+        ],
+        "cross_file_event_edges": [
+          "celery::inventory.refresh::src/dispatch.py::src/tasks.py"
+        ],
+        "dependencies": [
+          "celery"
+        ],
+        "framework_signals": [
+          "celery::backend"
+        ]
+      }
+    },
+    {
+      "name": "mixed_celery_canvas_flow_fixture",
+      "repo_path": "./tests/fixtures/mixed_celery_canvas_flow_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [
+          {
+            "kind": "celery_task",
+            "name": "inventory.refresh",
+            "file": "src/tasks.py"
+          },
+          {
+            "kind": "celery_task",
+            "name": "orders.sync",
+            "file": "src/tasks.py"
+          },
+          {
+            "kind": "celery_task",
+            "name": "reports.finish",
+            "file": "src/tasks.py"
+          },
+          {
+            "kind": "celery_producer",
+            "name": "inventory.refresh",
+            "file": "src/dispatch.py"
+          },
+          {
+            "kind": "celery_producer",
+            "name": "orders.sync",
+            "file": "src/dispatch.py"
+          },
+          {
+            "kind": "celery_producer",
+            "name": "reports.finish",
+            "file": "src/dispatch.py"
+          }
+        ],
+        "cross_file_event_edges": [
+          "celery::inventory.refresh::src/dispatch.py::src/tasks.py",
+          "celery::orders.sync::src/dispatch.py::src/tasks.py",
+          "celery::reports.finish::src/dispatch.py::src/tasks.py"
+        ],
+        "dependencies": [
+          "celery"
+        ],
+        "framework_signals": [
+          "celery::backend"
+        ]
+      }
+    },
+    {
+      "name": "mixed_celery_canvas_flow_noise_fixture",
+      "repo_path": "./tests/fixtures/mixed_celery_canvas_flow_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "entrypoints": [],
+        "dependencies": [
+          "celery"
+        ],
+        "framework_signals": [
+          "celery::backend"
+        ]
+      }
+    },
+    {
+      "name": "quarkus_jaxrs_fixture",
+      "repo_path": "./tests/fixtures/quarkus_jaxrs_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /api/reports/{id}",
+          "POST /api/reports"
+        ],
+        "dependencies": [
+          "quarkus-resteasy-reactive"
+        ],
+        "framework_signals": [
+          "quarkus::backend"
+        ]
+      }
+    },
+    {
+      "name": "quarkus_jaxrs_noise_fixture",
+      "repo_path": "./tests/fixtures/quarkus_jaxrs_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [],
+        "dependencies": [
+          "quarkus-resteasy-reactive"
+        ],
+        "framework_signals": [
+          "quarkus::backend"
+        ]
+      }
+    },
+    {
+      "name": "micronaut_controller_fixture",
+      "repo_path": "./tests/fixtures/micronaut_controller_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /api/accounts/{id}",
+          "POST /api/accounts"
+        ],
+        "dependencies": [
+          "micronaut-http-server-netty"
+        ],
+        "framework_signals": [
+          "micronaut::backend"
+        ]
+      }
+    },
+    {
+      "name": "micronaut_controller_noise_fixture",
+      "repo_path": "./tests/fixtures/micronaut_controller_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [],
+        "dependencies": [
+          "micronaut-http-server-netty"
+        ],
+        "framework_signals": [
+          "micronaut::backend"
+        ]
+      }
+    },
+    {
+      "name": "ktor_fixture",
+      "repo_path": "./tests/fixtures/ktor_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [
+          "GET /api/health",
+          "POST /api/orders"
+        ],
+        "dependencies": [
+          "ktor-server-core-jvm"
+        ],
+        "framework_signals": [
+          "ktor::backend"
+        ]
+      }
+    },
+    {
+      "name": "ktor_noise_fixture",
+      "repo_path": "./tests/fixtures/ktor_noise_proof_repo",
+      "mode": "deterministic",
+      "repeat": 1,
+      "goldens": {
+        "endpoints": [],
+        "dependencies": [
+          "ktor-server-core-jvm"
+        ],
+        "framework_signals": [
+          "ktor::backend"
+        ]
+      }
+    }
+  ]
+}
